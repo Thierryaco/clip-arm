@@ -162,3 +162,25 @@ Dépendances Python pour `sync.py` : `pip install librosa soundfile numpy`. Pour
   déterministe (yeux, à partir d'une fonction de `t`, pas de `Math.random`). Vérifier à l'image près sur L02 et L26.
 - Ne **pas** refaire de génération de variante sans recalage : le cadrage dérivera à nouveau.
 - Pour toute nouvelle image du personnage (autre expression, autre plan) : générer, recaler, puis coller la zone seulement.
+
+## 11. Mise à jour : moteur de pages (livre de recettes, concept B)
+
+Fichiers (`pages/`) :
+- `index.html` : `?t=<secondes>` affiche une image fixe ; `?play` lit `../audio/song.mp3` en temps réel.
+- `book.js` : expose `window.BOOK.renderAt(t)`. Couverture (`intro`, puis avant la première section) ; page « Dolma » (`verse_1`, L02–L05, ingrédients cochés à L02 et L04, karaoké, portrait de la cuisinière : bouche selon `voice`, clignement `t % 3.7 < 0.14`) ; « Page à venir » pour les autres sections.
+- `book.css` : mise en page 1920×1080. Pas de transition ni d'animation CSS.
+- `fonts/` : Caveat 600, Playfair Display 400 et 600 (SIL OFL, @fontsource).
+- `tools/snap.mjs` : capture d'écran à des temps donnés. Variables : `CLIP_DIR`, `CHROME_PATH`. Prérequis : `puppeteer-core`.
+
+Assets ajoutés (`assets/plats/`) : `cover_tonir.jpg`, `dolma.jpg` (illustrations générées, validées à l'œil).
+Assets cuisinière (`assets/cuisiniere/`) : `reference.jpg` (personnage choisi), `bouche_ouverte.jpg`, `yeux_fermes.jpg` (collages recalés). Validation utilisateur des bords des zones collées : à faire.
+
+État visuel :
+- Couverture (t=5, 20) : validée à l'œil. Tampon « DOLMA FOREVER » en une ligne, karaoké en bas de la colonne de droite.
+- Page « Dolma » (t=45) : validée à l'œil. Paroles affichées sous « Chanté : ». Bug corrigé : le filtre utilisait `l.section`, absent de l'état ; il passe par `lineById[l.id].section`.
+
+Captures de contrôle : `tmp/snaps/` (ignoré par Git, ne pas versionner). Commande :
+`CLIP_DIR=$PWD CHROME_PATH=/tmp/chromium /tmp/chr/run_snap.sh <t…> --out tmp/snaps`
+(Chromium et puppeteer-core ne sont pas persistés : à réinstaller si la session repart de zéro.)
+
+À faire ensuite : pages restantes (Lavash, Menu, Kefta, Souvenirs, Fête, Fin de la recette, reprise finale) et leurs illustrations (generate_image) ; recaler `STORYBOARD.md` sur les temps finaux ; rendu 1080p sur la machine de l'utilisateur.

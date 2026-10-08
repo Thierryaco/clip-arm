@@ -1,0 +1,66 @@
+/* Livre de recettes : mise en page 1920x1080. Aucune transition ni animation CSS (règle du moteur). */
+@font-face { font-family: 'Caveat'; src: url('fonts/caveat-latin-600-normal.woff2') format('woff2'); font-weight: 600; }
+@font-face { font-family: 'Playfair'; src: url('fonts/playfair-display-latin-400-normal.woff2') format('woff2'); font-weight: 400; }
+@font-face { font-family: 'Playfair'; src: url('fonts/playfair-display-latin-600-normal.woff2') format('woff2'); font-weight: 600; }
+
+html, body { margin: 0; background: #1e140d; }
+#stage {
+  position: relative; width: 1920px; height: 1080px; overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 40%, rgba(255,220,170,0.10), rgba(0,0,0,0) 60%),
+    repeating-linear-gradient(90deg, #4a3224 0 180px, #432c1f 180px 182px, #4f3627 182px 360px);
+}
+#book { position: absolute; left: 110px; top: 70px; width: 1700px; height: 940px; }
+
+.page {
+  position: absolute; inset: 0; border-radius: 6px; overflow: hidden;
+  background:
+    radial-gradient(ellipse at 30% 20%, rgba(255,255,255,0.35), rgba(255,255,255,0) 55%),
+    radial-gradient(ellipse at 80% 90%, rgba(120,80,40,0.10), rgba(0,0,0,0) 60%),
+    #f6ecd6;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.55), inset 0 0 90px rgba(120,80,40,0.18);
+}
+.page .fold {
+  position: absolute; top: 0; bottom: 0; left: 50%; width: 60px; margin-left: -30px;
+  background: linear-gradient(90deg, rgba(90,60,30,0), rgba(90,60,30,0.16) 50%, rgba(90,60,30,0));
+  pointer-events: none;
+}
+.hidden { display: none !important; }
+.abs { position: absolute; }
+
+/* --- couverture --- */
+.cover-ill { position: absolute; left: 120px; top: 110px; width: 640px; height: 880px; -webkit-mask-image: radial-gradient(ellipse 52% 50% at 50% 50%, #000 62%, transparent 100%); mask-image: radial-gradient(ellipse 52% 50% at 50% 50%, #000 62%, transparent 100%); }
+.cover-title { position: absolute; right: 90px; top: 200px; width: 760px; text-align: center; color: #5a2a18; }
+.cover-title .kicker { font: 400 34px 'Playfair'; letter-spacing: 0.25em; text-transform: uppercase; color: #8a5a3a; }
+.cover-title .big { font: 600 128px/1.02 'Playfair'; margin-top: 18px; color: #4d2014; }
+.cover-title .sub { font: 400 40px 'Playfair'; font-style: italic; margin-top: 26px; color: #7a4a2e; }
+.stamp {
+  position: absolute; right: 110px; top: 628px; width: 640px; height: 150px; border: 9px double #a8322a;
+  border-radius: 14px; color: #a8322a; font: 600 60px/132px 'Playfair'; text-align: center; letter-spacing: 0.05em; white-space: nowrap;
+  transform: rotate(-6deg); opacity: 0.88; mix-blend-mode: multiply;
+}
+.hand { font: 600 64px 'Caveat'; color: #3a2a1e; }
+.hand .w { transition: none; }
+.hand .done { color: #6b5443; }
+.hand .now { color: #a8322a; }
+.hand .todo { color: #3a2a1e; opacity: 0.55; }
+
+/* --- page « Dolma » --- */
+.hdr { position: absolute; left: 110px; top: 70px; font: 600 58px 'Playfair'; color: #4d2014; }
+.hdr-num { position: absolute; right: 110px; top: 84px; font: 400 36px 'Playfair'; color: #8a5a3a; }
+.dolma-ill { position: absolute; left: 110px; top: 190px; width: 520px; height: 520px; -webkit-mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 70%, transparent 100%); mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 70%, transparent 100%); }
+.ing-title { position: absolute; left: 720px; top: 170px; font: 600 44px 'Caveat'; color: #8a5a3a; }
+.ing { position: absolute; left: 720px; font: 600 56px 'Caveat'; color: #3a2a1e; }
+.ing .box { display: inline-block; width: 40px; height: 40px; border: 3px solid #5a3a26; border-radius: 4px; margin-right: 22px; vertical-align: -6px; position: relative; }
+.ing .box.on::after { content: ''; position: absolute; left: 8px; top: -14px; width: 22px; height: 40px; border-right: 6px solid #a8322a; border-bottom: 6px solid #a8322a; transform: rotate(40deg); }
+.ing.off { opacity: 0.45; }
+.ing.pop .box.on::after { transform: rotate(40deg) scale(1.25); }
+
+.cook { position: absolute; right: 110px; bottom: 150px; width: 300px; height: 390px; transform: rotate(3deg);
+  box-shadow: 0 12px 26px rgba(40,25,15,0.35); border: 14px solid #fffdf6; background: #fff; }
+.cook img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.cook-tape { position: absolute; right: 120px; bottom: 515px; width: 130px; height: 40px; background: rgba(230,215,160,0.7); transform: rotate(-4deg); }
+
+.karaoke { position: absolute; left: 110px; right: 110px; bottom: 90px; min-height: 140px; text-align: left; }
+.karaoke-tag { font: 600 40px 'Caveat'; color: #8a5a3a; }
+.fallback { position: absolute; left: 0; right: 0; top: 440px; text-align: center; font: 400 52px 'Playfair'; color: #8a5a3a; font-style: italic; }
