@@ -38,9 +38,8 @@ moment où elle est chantée.
    serveurs de Suno ne répondent pas d'ici). Dépose le fichier dans le dépôt :
    `clips/dolma-forever/audio/song.mp3` (environ 4 à 10 Mo, bien sous la limite de 128 Mo). Tu peux le faire en
    ajoutant le fichier au dépôt sur GitHub, sur la branche `arena/2748952e-clip-arm`.
-2. **Une photo de la cuisinière** (ou une clé Gemini pour la générer, voir étape 5). Si tu veux qu'elle ressemble à
-   quelqu'un, il faut une vraie photo de référence, pas une génération.
-3. **Facultatif** : des photos de famille, de plats, de cuisine (si tu veux les intégrer comme souvenirs dans le pont).
+2. **Rien d'autre à fournir pour les images.** Tout le visuel est généré et animé : la cuisinière, les illustrations,
+   les photos de souvenirs. Aucune photo de l'utilisateur n'est utilisée.
 
 ---
 
@@ -122,7 +121,7 @@ Chaque agent se teste sur son banc `?lab=nom`, fait au moins 4 allers-retours «
 
 ### Étape 5 : images (si besoin)
 - Portrait de la cuisinière (référence) puis variantes : bouche ouverte, yeux fermés, pour le lip-sync. Outil :
-  `tools/gen_image.py` avec une clé Gemini, ou ta propre photo.
+  génération d'image de l'agent (aucune clé à fournir à l'utilisateur).
 - Illustrations des plats : soit générées (fond transparent, style aquarelle ou gravure de livre de cuisine), soit
   dessinées en SVG par l'agent `ingredients`. Pas de logo ni d'interface de marque.
 

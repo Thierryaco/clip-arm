@@ -10,7 +10,7 @@ Tu reprends un projet de clip musical. Lis d'abord ce prompt en entier, puis les
 
 Clip 16:9 1920×1080 sur la chanson Suno « (soft duduk intro, percussions qui montent doucement) » (titispeed, 3:59,
 lien : https://suno.com/s/6d0gOkzMpM9DFNuI). Concept retenu : **un livre de recettes animé**. Chaque section de la
-chanson est une page du livre. Une cuisinière virtuelle chante depuis une photo collée dans le livre (lip-sync).
+chanson est une page du livre. Une cuisinière virtuelle, entièrement générée, chante depuis une photo (générée elle aussi) collée dans le livre (lip-sync).
 
 ## 2. Où est tout
 
@@ -100,9 +100,11 @@ chanson est une page du livre. Une cuisinière virtuelle chante depuis une photo
      reprise finale. Les contenus sont décrits ligne par ligne dans `STORYBOARD.md` ;
    - le karaoké mot par mot (`wordIndex`), les changements de page sur les beats (`beat.phase`), l'énergie (`voice`, `bass`,
      `onset`) pour les secousses et les rebonds.
-3. **Personnage** : décider avec l'utilisateur si la cuisinière est générée (Gemini « Nano Banana », clé dans une variable
-   d'environnement, jamais dans le dépôt) ou si l'utilisateur fournit une photo. Puis produire : portrait de référence,
-   variante bouche ouverte, variante yeux fermés. Le lip-sync choisit selon `voice`.
+3. **Personnage** : tout est généré et animé. L'utilisateur ne fournit **aucune photo**. Produire d'abord un portrait de
+   référence (plusieurs candidats, l'utilisateur choisit), puis les variantes bouche ouverte et yeux fermés par édition
+   d'image à partir de la référence. Le lip-sync bascule entre ces images selon `voice`. Outil : génération d'image de
+   l'agent. Si elle n'est pas disponible, demander à l'utilisateur une clé Gemini, qui ne doit jamais être écrite dans
+   le dépôt.
 4. **Illustrations des plats** : soit générées, soit en SVG. Pas de logo ni d'interface de marque.
 5. **Aperçu et contrôle** : une planche de contrôle (images à intervalles réguliers), puis vérifier les temps clés
    (L10, L14, L25, L26, L34).
@@ -139,6 +141,7 @@ Dépendances Python pour `sync.py` : `pip install librosa soundfile numpy`. Pour
 
 - Il parle français, et veut des réponses courtes et concrètes, sans jargon inutile.
 - Il ne veut pas de limite de 128 Mo : seule compte la limite de GitHub.
+- Tout le visuel est **généré et animé** : ne jamais lui demander de photo de la cuisinière, de famille ou de plats.
 - Il veut **tout** garder : les passages ajoutés par Suno (« Aïe », « R roulé », reprise) ne doivent pas être ignorés.
 - Il valide ce qu'il entend à l'oreille. Il ne veut pas qu'on invente des paroles : quand la transcription est douteuse,
   il faut le dire et lui demander de vérifier.

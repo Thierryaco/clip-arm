@@ -56,7 +56,7 @@ le script et le storyboard reste valide.
 |---|---|---|---|
 | L18 | Soudjouk séché au vent des hauts plateaux | Photo ancienne collée, soudjouk suspendu, traits de vent. Le livre ralentit : grain plus fort. | ralenti (pas de coupe) |
 | L19 | Pasteurma rouge, épices qui marquent l'âme | Gros plan sur la pasteurma, tache rouge qui s'étale sur le papier. | tache qui s'étale |
-| L20 | Ces goûts d'autrefois restent gravés en nous | Photo de famille (à fournir ou à générer), la cuisinière regarde la page et chante plus bas. | fondu lent |
+| L20 | Ces goûts d'autrefois restent gravés en nous | Photo de famille (générée), la cuisinière regarde la page et chante plus bas. | fondu lent |
 
 ## Refrain 2 (plus fort, chœurs) : double page « Fête »
 
@@ -95,8 +95,7 @@ Les mots viennent du refrain et des consignes de l'outro, à valider à l'écout
 | L35 | R roulé… | Dernier « R », qui s'estompe dans le noir. Le livre se referme. | fondu final |
 
 ## Points à valider (voir METHODE_ADAPTEE.md)
-- Photo de la cuisinière (ou génération) et nom du personnage.
-- Photo de famille pour L20 (facultatif : générée sinon).
+- Nom et apparence de la cuisinière (tout est généré et animé, aucune photo fournie).
 - Reprise finale L26–L35 : confirmer les mots, l'ordre et le nombre de lignes de la seconde passe (L30–L33).
 - E01 (écho) : gardé à sa place (après « Dolma forever »), décision validée.
 - Graphie unique de « beureK » à l'écran.

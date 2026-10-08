@@ -37,8 +37,7 @@ Les corrections à l'oreille vont dans `timings/overrides.json`, par exemple `{"
 
 1. **La transcription** : `audio/transcript.json`. Elle se fait sur ta machine (`python3 tools/transcribe.py`), parce que
    le sandbox ne peut pas télécharger le modèle Whisper. Une fois le fichier poussé, `sync.py` peut tourner ici.
-2. **Une photo de la cuisinière** si tu veux qu'elle ressemble à quelqu'un (sinon elle est générée).
-3. **Facultatif** : une photo de famille pour la ligne L20.
+2. **Rien d'autre à fournir pour les images** : la cuisinière, les plats et la photo de famille de L20 sont générés et animés.
 
 ## Taille
 
