@@ -27,12 +27,19 @@ fi
 CLIP="$WORK/clip-arm/clips/dolma-forever"
 
 echo "== 2/4 Outils (Node.js, ffmpeg)"
-if ! command -v node >/dev/null 2>&1; then
-  if command -v apt-get >/dev/null 2>&1; then
-    $SUDO apt-get update -qq && $SUDO apt-get install -y -qq nodejs npm
-  else
-    echo "Node.js 18+ est requis : installez-le (https://nodejs.org) puis relancez."; exit 1
+NODE_MAJOR=0
+command -v node >/dev/null 2>&1 && NODE_MAJOR=$(node -p 'process.versions.node.split(".")[0]')
+if [ "$NODE_MAJOR" -lt 18 ]; then
+  # Node absent ou trop ancien (Puppeteer demande Node 18+) : on installe une version récente.
+  if ! command -v npm >/dev/null 2>&1 && command -v apt-get >/dev/null 2>&1; then
+    $SUDO apt-get update -qq && $SUDO apt-get install -y -qq npm
   fi
+  if command -v npm >/dev/null 2>&1; then
+    $SUDO npm install -g --silent n && $SUDO n 20 >/dev/null
+    hash -r
+  fi
+  NODE_MAJOR=$(node -p 'process.versions.node.split(".")[0]' 2>/dev/null || echo 0)
+  if [ "$NODE_MAJOR" -lt 18 ]; then echo "Node.js 18+ est requis : installez-le (https://nodejs.org) puis relancez."; exit 1; fi
 fi
 if [ -z "${FFMPEG:-}" ] && ! command -v ffmpeg >/dev/null 2>&1; then
   if command -v apt-get >/dev/null 2>&1; then
