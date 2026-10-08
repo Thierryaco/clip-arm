@@ -18,7 +18,7 @@
       "joyful 120-135 bpm",
       "like traditional Armenian wedding song meets modern world music"
     ],
-    "note": "Paroles copiées telles quelles depuis la page Suno. Temps mesurés par tools/sync.py. La version chantée (audio) contient des passages absents de ces paroles (« Aïe aïe aïe », « Pour un café de repas », « Méroulé ») : voir timings/overrides.json."
+    "note": "Paroles copiées depuis la page Suno. La version chantée (audio) contient des passages absents de ces paroles : « Aïe aïe aïe » (remplace Hay hay hay, validé), un refrain répété avec ad-libs vers 3:16, « Pour un café de repas » vers 3:29, « R roulé » vers 3:43 et 3:46. Ces passages sont à garder."
   },
   "sections": [
     {
@@ -104,7 +104,8 @@
   "pronunciation_notes": {
     "beureK (r roulé !)": "Le « r » final est à rouler. Le texte garde la graphie officielle (BeureK / beureK) ; à l'écran, adopter une graphie unique (ex. « börek » ou « beureK ») et la garder partout.",
     "Hayastan": "Nom arménien de l'Arménie.",
-    "Hay hay hay, aïdé à table": "« aïdé » est tel quel dans les paroles officielles ; à confirmer avec l'auteur (orthographe voulue ?)."
+    "Hay hay hay, aïdé à table": "« aïdé » est tel quel dans les paroles officielles ; à confirmer avec l'auteur (orthographe voulue ?).",
+    "R roulé (passages chantés)": "Suno a chanté les annotations entre parenthèses comme des paroles : « r roulé » est chanté (la lettre R, roulée) vers 3:43 et 3:46. À garder dans le clip."
   },
   "transcription_initial_prompt_words": [
     "Hayastan",
