@@ -1,45 +1,49 @@
 # Dolma Forever : clip musical
 
 Clip 16:9 1080p sur la chanson Suno [titispeed, « (soft duduk intro, percussions qui montent doucement) »](https://suno.com/s/6d0gOkzMpM9DFNuI)
-(3:59). Concept : un **livre de recettes animé**, chaque section de la chanson est une page, avec une cuisinière
-virtuelle qui chante depuis une photo collée.
+(3:59). Concept : un **livre de recettes animé**. Chaque section de la chanson est une page. Une cuisinière virtuelle,
+générée, chante depuis une photo collée dans le livre (lip-sync).
+
+Où en est le projet et ce qui reste à faire : [`PROMPT_REPRISE.md`](PROMPT_REPRISE.md) (sections 6 et 12).
 
 ## Contenu
 
-| fichier | rôle | état |
-|---|---|---|
-| `METHODE_ADAPTEE.md` | méthode, pipeline, agents, points de vigilance | à jour |
-| `STORYBOARD.md` | une entrée par ligne chantée (L01…L25, E01) | à jour |
-| `lyrics/paroles.json` | paroles officielles, sections, prononciation | à jour |
-| `tools/transcribe.py` | transcription mot par mot (faster-whisper) | à lancer sur ta machine |
-| `tools/sync.py` | analyse audio + alignement + timings + données du moteur | prêt, testé sur chanson de test |
-| `tools/test_engine_state.js` | teste l'état du clip à un instant t | prêt, teste les données générées |
-| `core/engine-state.js` | état pur à l'instant t (ligne, mot, section, beat, énergie) | prêt, testé |
-| `audio/song.mp3` | la chanson (`kenji dolma.mp3`, 239,9 s, stéréo 48 kHz, copiée depuis `congenial-dollop`) | présent |
-| `timings/timings.json`, `timings/TIMINGS.md` | temps de chaque ligne | générés par `sync.py` |
-| `core/lyrics-data.js`, `core/audio-analysis.js` | données pour le navigateur | générés par `sync.py` |
+| fichier | rôle |
+|---|---|
+| `PROMPT_REPRISE.md` | document de reprise : état, points à écouter, commandes |
+| `METHODE_ADAPTEE.md` | méthode, pipeline, agents, points de vigilance |
+| `STORYBOARD.md` | une entrée par ligne chantée (L01…L35, E01) |
+| `lyrics/paroles.json` | paroles, sections, prononciation |
+| `audio/song.mp3` | la chanson (239,9 s, stéréo 48 kHz ; copie de `kenji dolma.mp3`, dépôt `Thierryaco/congenial-dollop`) |
+| `audio/transcript.json` | transcription mot par mot, faite sur Colab (52 % des mots reconnus) |
+| `timings/overrides.json` | corrections manuelles des temps |
+| `timings/timings.json`, `timings/TIMINGS.md` | temps de chaque ligne (générés par `sync.py`) |
+| `core/engine-state.js` | état du clip à l'instant t (fonctions pures) |
+| `core/lyrics-data.js`, `core/audio-analysis.js` | données pour le navigateur (générées par `sync.py`) |
+| `pages/` | le livre : `book.js` (`renderAt(t)`), `book.css`, `index.html` |
+| `assets/` | illustrations des plats et portrait de la cuisinière |
+| `tools/` | `sync.py`, `transcribe.py`, `test_engine_state.js`, `snap.mjs`, `render.mjs`, `render_all.sh` |
 
-## Pour lancer la synchronisation
-
-Il faut `audio/song.mp3` (la chanson) et, sur ta machine, Python 3.10+ :
+## Commandes
 
 ```bash
-pip install librosa soundfile numpy faster-whisper
-python3 tools/transcribe.py      # → audio/transcript.json
-python3 tools/sync.py            # → timings, données du moteur, contrôle
-node tools/test_engine_state.js  # → vérifie l'état du clip sur les données générées
+python3 tools/sync.py --check     # vérifie timings/timings.json
+python3 tools/sync.py             # recalcule les temps (après une correction dans timings/overrides.json)
+node tools/test_engine_state.js   # tests du moteur
 ```
 
-Les corrections à l'oreille vont dans `timings/overrides.json`, par exemple `{"L05": {"start": 46.2}}`. Puis on relance
-`sync.py`.
+`sync.py` demande `pip install librosa soundfile numpy`. `transcribe.py` demande `pip install faster-whisper` ; le modèle
+Whisper se télécharge depuis Hugging Face, donc la transcription se fait sur ta machine (elle est déjà faite).
 
-## Ce qu'il manque
+Rendu, sur ta machine (terminal Linux, ou cellule `!` de Colab) :
 
-1. **La transcription** : `audio/transcript.json`. Elle se fait sur ta machine (`python3 tools/transcribe.py`), parce que
-   le sandbox ne peut pas télécharger le modèle Whisper. Une fois le fichier poussé, `sync.py` peut tourner ici.
-2. **Rien d'autre à fournir pour les images** : la cuisinière, les plats et la photo de famille de L20 sont générés et animés.
+```bash
+curl -fsSL https://raw.githubusercontent.com/Thierryaco/clip-arm/arena/6075c539-clip-arm/clips/dolma-forever/tools/render_all.sh | bash -s -- --preview
+```
+
+Sans `--preview` : le master 1080p (environ 2 Go). Il reste hors dépôt : `tmp/` est ignoré par Git.
 
 ## Taille
 
-Le dépôt doit rester sous 128 Mo. Le `.gitignore` exclut `out/`, les vidéos rendues (le master 1080p pèse environ 2 Go)
-et les intermédiaires d'analyse. Les données générées restent petites (environ 1 Mo).
+Le dépôt doit rester sous la limite de GitHub (100 Mo par fichier). Le `.gitignore` exclut `out/`, `tmp/`, les vidéos
+et `audio/analysis.json` (intermédiaire régénéré par `sync.py`).

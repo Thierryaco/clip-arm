@@ -36,8 +36,7 @@ moment où elle est chantée.
 
 1. **Le MP3 de la chanson.** Le lien Suno ne donne que la page, et le sandbox ne peut pas télécharger l'audio (les
    serveurs de Suno ne répondent pas d'ici). Dépose le fichier dans le dépôt :
-   `clips/dolma-forever/audio/song.mp3` (environ 4 à 10 Mo, bien sous la limite de 128 Mo). Tu peux le faire en
-   ajoutant le fichier au dépôt sur GitHub, sur la branche `arena/2748952e-clip-arm`.
+   `clips/dolma-forever/audio/song.mp3` (environ 4 à 10 Mo, bien sous la limite de 128 Mo). Fait : le fichier est dans le dépôt.
 2. **Rien d'autre à fournir pour les images.** Tout le visuel est généré et animé : la cuisinière, les illustrations,
    les photos de souvenirs. Aucune photo de l'utilisateur n'est utilisée.
 
@@ -69,7 +68,7 @@ clips/dolma-forever/
 ├─ core/lyrics-data.js            ← généré par sync.py
 ├─ core/audio-analysis.js         ← généré par sync.py
 ├─ tools/  transcribe.py · sync.py · test_engine_state.js
-├─ STORYBOARD.md                  ← une entrée par id de ligne (L01…L25, E01), temps dans TIMINGS.md
+├─ STORYBOARD.md                  ← une entrée par id de ligne (L01…L35, E01), temps dans TIMINGS.md
 ├─ METHODE_ADAPTEE.md · README.md · .gitignore
 └─ (à créer ensuite)  pages/ docs/ assets/ out/ (ignoré)
 ```
@@ -79,7 +78,7 @@ Une seule chaîne : `paroles.json` → audio → `timings/timings.json` → tout
 
 ```bash
 python3 tools/transcribe.py      # sur ta machine : audio/transcript.json (faster-whisper, mots horodatés)
-python3 tools/sync.py            # analyse audio + alignement des 25 lignes + E01 + contrôle
+python3 tools/sync.py            # analyse audio + alignement des 35 lignes + E01 + contrôle
 node tools/test_engine_state.js  # teste l'état du clip à différents instants
 ```
 
@@ -105,7 +104,7 @@ Reprendre `engine.js`, `main.js`, `base.css`, `index.html`, `snap.js`, `render.j
 page, marges, grain papier) et la palette.
 
 ### Étape 3 : storyboard
-`STORYBOARD.md` : une entrée par identifiant de ligne (L01 … L25, E01). Les temps ne sont pas recopiés : ils viennent
+`STORYBOARD.md` : une entrée par identifiant de ligne (L01 … L35, E01). Les temps ne sont pas recopiés : ils viennent
 de `timings/TIMINGS.md`. Modifier le storyboard ne demande donc aucun recalcul.
 
 ### Étape 4 : vague 1, 4 agents « modules »

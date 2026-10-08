@@ -1,6 +1,6 @@
 # Storyboard : Dolma Forever (concept : livre de recettes animé, 16:9 1080p)
 
-Chaque ligne chantée a un identifiant (L01 … L25, et E01 pour l'écho de l'outro). **Les temps ne sont pas écrits ici** :
+Chaque ligne chantée a un identifiant (L01 … L35, et E01 pour l'écho de l'outro). **Les temps ne sont pas écrits ici** :
 ils viennent de `timings/TIMINGS.md`, généré par `tools/sync.py` à partir de l'audio. Si la chanson change, on relance
 le script et le storyboard reste valide.
 
@@ -115,3 +115,8 @@ Les mots viennent du refrain et des consignes de l'outro, à valider à l'écout
 - Reprise finale L26–L35 : confirmer les mots, l'ordre et le nombre de lignes de la seconde passe (L30–L33).
 - E01 (écho) : gardé à sa place (après « Dolma forever »), décision validée.
 - Graphie unique de « beureK » à l'écran.
+- Refrains 1 et 2 chantés deux fois (1:22–1:33 et 2:24–2:35 d'après la transcription) : le second passage n'est affiché nulle part. À décider (PROMPT_REPRISE.md, §12).
+- L25 : « Aïe aïe aïe » jusqu'à environ 3:01, puis « aïdé à table ! Dolma forever » vers 3:01–3:03. Le karaoké affiche « Dolma forever » dès 2:37 : à corriger quand le texte est confirmé (§12).
+- Reprise, 3:28–3:37 : la transcription entend « Pour un café de repas », qui n'est dans aucune ligne. Texte à confirmer (§12).
+- Page « Encore ! » : sans cuisinière, alors que la règle commune ci-dessus la veut sur les lignes chantées. À trancher.
+- L10 et L21 : l'annotation « r roulé » de la chanson n'est pas affichée (texte nettoyé), contrairement à la fiche L10 ci-dessus.

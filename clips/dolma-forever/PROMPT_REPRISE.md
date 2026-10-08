@@ -15,9 +15,9 @@ chanson est une page du livre. Une cuisinière virtuelle, entièrement généré
 ## 2. Où est tout
 
 - **Dépôt** : `Thierryaco/clip-arm` (public ou privé selon l'utilisateur, accès via `gh` et `git`).
-- **Branche de travail (obligatoire)** : `arena/2748952e-clip-arm`. Ne jamais travailler sur une autre branche.
+- **Branche de travail (obligatoire)** : la branche de la session. Pour la session du 8 oct. 2026 : `arena/6075c539-clip-arm` (voir §12). Ne jamais travailler sur une autre branche.
 - **Dossier du clip** : `clips/dolma-forever/`.
-- **Dernier commit** : `235c2e3` (« E01 : garde sa place »).
+- **Dernier commit du travail d'origine** : `cf182c7` (« Reprise : notes Colab »). Le commit `235c2e3` cité plus bas est plus ancien. Les commits de la session 8 oct. 2026 sont décrits au §12.
 - **Chanson** : `clips/dolma-forever/audio/song.mp3` (239,9 s, stéréo 48 kHz). Copie du fichier
   `kenji dolma.mp3` du dépôt public `Thierryaco/congenial-dollop` (commit `cce08aee…`).
 
@@ -133,7 +133,7 @@ Dépendances Python pour `sync.py` : `pip install librosa soundfile numpy`. Pour
 - Hôtes autorisés depuis le sandbox : `github.com`, `codeload.github.com`, `api.github.com`, `registry.npmjs.org`,
   `pypi.org`, `files.pythonhosted.org`. **Pas** Suno, Hugging Face, Google, openai.com.
 - `gh` et `git` fonctionnent. Ne jamais demander de token à l'utilisateur.
-- Node 22 est présent. Python 3.11 est présent. Pas de Chrome ni de ffmpeg.
+- Node 22 est présent. Python 3.11 est présent. Pas de Chrome ni de ffmpeg au départ : voir §12 pour les installer depuis npm et PyPI.
 - L'environnement Python de test (`/tmp/venv`) n'est pas persisté : réinstaller les dépendances si besoin.
 - Les fichiers hors `/home/user` ne sont pas sauvegardés. Tout le travail est dans `/home/user/clip-arm`.
 
@@ -220,10 +220,45 @@ Captures de contrôle : `tmp/snaps/` (ignoré par Git, ne pas versionner). Comma
 
 Sur la machine de l'utilisateur (terminal Linux, ou cellule « ! » de Colab), une seule ligne :
 
-    curl -fsSL https://raw.githubusercontent.com/Thierryaco/clip-arm/arena/2748952e-clip-arm/clips/dolma-forever/tools/render_all.sh | bash
+    curl -fsSL https://raw.githubusercontent.com/Thierryaco/clip-arm/arena/6075c539-clip-arm/clips/dolma-forever/tools/render_all.sh | bash -s --
 
 Le script clone la branche, installe ffmpeg (apt) et puppeteer (qui télécharge Chrome), puis lance `render.mjs`.
 Options : `--preview` (960×540, rapide), `--from 40 --to 60` (extrait). Sortie : `clips/dolma-forever/tmp/render/` (ignoré par Git).
 Testé dans le sandbox sur un extrait de 2 s en aperçu (sans téléchargement de Chrome, avec CHROME_PATH et FFMPEG fournis). Le téléchargement de Chrome et l'appel `raw.githubusercontent.com` n'ont pas pu être testés ici.
 
 Sur Colab : le fichier est créé sur le disque temporaire de la session (`/root/dolma-forever-render/...`), pas sur le disque de l'utilisateur. Le télécharger avant la fin de la session (cellule Python : `from google.colab import files; files.download(chemin)`). Le master est long à rendre sur Colab : garder l'onglet ouvert, ou faire le rendu par morceaux (`--from/--to`). Non testé sur Colab.
+
+## 12. Mise à jour : session du 8 oct. 2026 (branche `arena/6075c539-clip-arm`)
+
+**Branche.** Cette session est fixée sur `arena/6075c539-clip-arm`. Le travail de `arena/2748952e-clip-arm` y a été reporté jusqu'au commit `cf182c7` (fast-forward) : les deux branches sont identiques jusqu'à ce commit. `arena/2748952e-clip-arm` n'a pas été modifiée. Les commits de cette session sont sur `arena/6075c539-clip-arm` seulement.
+
+**Vérifié.**
+- `python3 tools/sync.py --check` : 36 lignes, 0 erreur. `node tools/test_engine_state.js` : passe.
+- 16 captures (planche de contrôle) et une capture à 223,5 s : pages et cases cochées aux bons temps (L10, L14, L25, L26, L34). Le karaoké de L25 reste à corriger (point 3 ci-dessous).
+- Lip-sync sur L02 : bouche fermée à 40,40 s, ouverte à 40,47 s, clignement à 40,70–40,83 s.
+- Rendu séquentiel (comme `render.mjs`) et rendu isolé identiques au pixel près sur 40–46 s (PSNR ≥ 55 dB, 13 images identiques) : `render.mjs` n'a pas besoin de changer.
+- Rendu d'aperçu de bout en bout (2 s, H.264 + AAC) et `render_all.sh` lancé par `cat … | bash -s --` : OK.
+
+**Ce que la transcription contredit ou laisse ouvert.** Heures au format m:ss, d'après `audio/transcript.json` (52 % des mots reconnus : peu fiable, à écouter).
+1. Refrain 1 chanté deux fois : 1:10–1:22 (L10–L13), puis 1:22–1:33 avec le même texte. Le second passage n'est affiché nulle part.
+2. Refrain 2 chanté deux fois : 2:12–2:24 (L21–L24), puis 2:24–2:35. Le début du second passage est mal transcrit (« Oudema a cofté pour le marminister », 2:24) ; les lignes suivantes correspondent à L22–L24.
+3. L25 (2:35) : « Aïe aïe aïe » jusqu'à environ 3:01, puis « aïdé à table ! Dolma forever » vers 3:01–3:03 (transcription : « Réalier table Dolma forever », 3:00,9–3:03,3). Le karaoké actuel fait « Dolma forever » à 2:37, soit environ 25 s d'avance. Texte exact à confirmer avant de retemporiser.
+4. E01 (3:04) : aucun mot transcrit entre 3:03 et 3:17. À vérifier : l'écho est-il chanté à cet endroit ?
+5. Reprise, première passe (3:16,8–3:28,8) : la transcription donne L26–L29 une seule fois. La section 3 dit « L26–L29 jouées deux fois » : à confirmer.
+6. Reprise, seconde passe (3:28–3:37) : la transcription entend « Pour un café de repas » (3:28,8), « Soudjouk qui craque » (3:31,5), « pasteurma qui pique » (3:35,8), « À table en Arménie… on vit » (3:37,0). Les lignes prévues à ces temps sont L30 « Dolma, keufté, beureK, R roulé », L31 « Bouboules… », L32 (3:34,3, interpolée) et L33. « Pour un café de repas » est cité comme passage chanté dans le commit `1142be3`, mais n'est dans aucune ligne de `lyrics/paroles.json`.
+7. L34 et L35 (« R roulé », 3:42,96 et 3:46,64) : cohérents avec la transcription.
+
+**Décisions en attente.**
+- Afficher ou non les seconds passages des refrains (points 1 et 2).
+- Texte et temps de L25 et de la reprise (points 3, 5 et 6).
+- Cuisinière sur la page « Encore ! » ? Elle est absente (choix du §11), alors que le §10 demande de vérifier la bouche sur L26.
+
+**Points de finition (proposés, non faits).**
+- Lip-sync nerveux : environ 5 bascules par seconde pendant le couplet 1, et 29 tenues sur 74 durent moins de 3 images. Proposition : garder la bouche ouverte au moins 0,1 s.
+- Clignement toutes les 3,7 s, très régulier. Proposition : un rythme irrégulier mais déterministe (fonction de l'index du clignement, sans `Math.random`).
+- Page « Encore ! » : espace trop grand après L29 et après L33. La hauteur de « À table en Arménie… » est estimée sur deux lignes, alors qu'elle tient sur une.
+- Graphies arméniennes : relecture par une personne arménophone toujours à faire (voir « inscriptions en arménien »).
+
+**Outils (hors dépôt, non persistés).** Chromium 153 : paquet npm `@sparticuz/chromium`. Décompresser `bin/al2023.tar.br` dans `/tmp/al2023` et exporter `LD_LIBRARY_PATH=/tmp/al2023/lib`. ffmpeg : PyPI `imageio-ffmpeg` (binaire inclus). Captures : `npm i puppeteer-core` dans `clips/dolma-forever/`, puis `CLIP_DIR=$PWD CHROME_PATH=<chrome> node tools/snap.mjs <t…> --out tmp/snaps`. Cela remplace `/tmp/chr/run_snap.sh`, qui n'existe plus.
+
+**Rendu.** Commande sur ta machine (terminal Linux ou cellule `!` de Colab) : `curl -fsSL https://raw.githubusercontent.com/Thierryaco/clip-arm/arena/6075c539-clip-arm/clips/dolma-forever/tools/render_all.sh | bash -s -- --preview` (sans `--preview` : master 1080p). Le script accepte les variables `BRANCH` et `REPO_URL`. L'URL brute n'a pas pu être testée depuis le sandbox : le script a été testé en local.
