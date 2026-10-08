@@ -100,7 +100,7 @@ chanson est une page du livre. Une cuisinière virtuelle, entièrement généré
      reprise finale. Les contenus sont décrits ligne par ligne dans `STORYBOARD.md` ;
    - le karaoké mot par mot (`wordIndex`), les changements de page sur les beats (`beat.phase`), l'énergie (`voice`, `bass`,
      `onset`) pour les secousses et les rebonds.
-3. **Personnage** : tout est généré et animé. L'utilisateur ne fournit **aucune photo**. Produire d'abord un portrait de
+3. **Personnage** (partiellement fait, voir §10) : tout est généré et animé. L'utilisateur ne fournit **aucune photo**. Produire d'abord un portrait de
    référence (plusieurs candidats, l'utilisateur choisit), puis les variantes bouche ouverte et yeux fermés par édition
    d'image à partir de la référence. Le lip-sync bascule entre ces images selon `voice`. Outil : génération d'image de
    l'agent. Si elle n'est pas disponible, demander à l'utilisateur une clé Gemini, qui ne doit jamais être écrite dans
@@ -148,3 +148,17 @@ Dépendances Python pour `sync.py` : `pip install librosa soundfile numpy`. Pour
 - Il a des fichiers sur GitHub et travaille depuis l'interface web : donne-lui les étapes exactes (où cliquer, quelle
   branche).
 - Le texte de l'utilisateur sur Suno est la référence, mais la **chanson chantée** fait foi pour le timing.
+
+## 10. Mise à jour : personnage (fait après le document initial)
+
+- **Portrait de référence choisi** : `assets/cuisiniere/reference.jpg` (896×1168). Généré entièrement, candidat 2 retenu
+  par l'utilisateur. Femme d'environ 40 ans, foulard rouge, tablier crème, farine sur la joue.
+- **Variantes lip-sync** : `assets/cuisiniere/bouche_ouverte.jpg` et `assets/cuisiniere/yeux_fermes.jpg`.
+  Le générateur d'images **ne conserve pas le cadrage** d'une édition à l'autre (la tête tourne, le zoom change). Les
+  variantes brutes ont donc été recalées sur la référence (ORB + transformation de similarité, OpenCV), et seule la zone
+  de la bouche (ou des yeux) a été reprise, avec un contour doux. Le reste de chaque image est exactement la référence.
+  Les variantes brutes ont été supprimées du dépôt (régénérables si besoin).
+- **À faire avec ces images** : les basculer dans le moteur selon `voice` (bouche) et un clignement aléatoire mais
+  déterministe (yeux, à partir d'une fonction de `t`, pas de `Math.random`). Vérifier à l'image près sur L02 et L26.
+- Ne **pas** refaire de génération de variante sans recalage : le cadrage dérivera à nouveau.
+- Pour toute nouvelle image du personnage (autre expression, autre plan) : générer, recaler, puis coller la zone seulement.
