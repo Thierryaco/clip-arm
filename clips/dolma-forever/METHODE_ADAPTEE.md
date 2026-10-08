@@ -36,7 +36,7 @@ moment où elle est chantée.
 
 1. **Le MP3 de la chanson.** Le lien Suno ne donne que la page, et le sandbox ne peut pas télécharger l'audio (les
    serveurs de Suno ne répondent pas d'ici). Dépose le fichier dans le dépôt :
-   `clips/dolma-forever/audio/song.mp3` (environ 4 à 10 Mo, bien sous la limite de 128 Mo). Fait : le fichier est dans le dépôt.
+   `clips/dolma-forever/audio/song.mp3` (environ 4 à 10 Mo, bien sous la limite GitHub de 100 Mo par fichier). Fait : le fichier est dans le dépôt.
 2. **Rien d'autre à fournir pour les images.** Tout le visuel est généré et animé : la cuisinière, les illustrations,
    les photos de souvenirs. Aucune photo de l'utilisateur n'est utilisée.
 
@@ -50,8 +50,8 @@ moment où elle est chantée.
 - **Transcription.** faster-whisper télécharge son modèle depuis Hugging Face, qui ne fait pas partie des hôtes
   autorisés depuis ce sandbox (seuls GitHub, npm et PyPI le sont). La transcription se fera donc en local, ou il
   faudra fournir le modèle.
-- **Taille.** Le master 1080p fait environ 2 Go, la version web 450 Mo. Ces fichiers ne doivent pas entrer dans Git :
-  le `.gitignore` du dossier exclut `out/` et les vidéos. Pour rester sous 128 Mo, on ne versionne que le code, les
+- **Taille.** Le master 1080p pèse quelques dizaines de Mo (mesure : 2,1 Mo pour 20 s). Ces fichiers ne doivent pas entrer dans Git :
+  le `.gitignore` du dossier exclut `out/` et les vidéos. Pour rester sous la limite de GitHub (100 Mo par fichier), on ne versionne que le code, les
   paroles, la doc et le MP3 source.
 
 ---

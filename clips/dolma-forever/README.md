@@ -42,7 +42,33 @@ Rendu, sur ta machine (terminal Linux, ou cellule `!` de Colab) :
 curl -fsSL https://raw.githubusercontent.com/Thierryaco/clip-arm/arena/6075c539-clip-arm/clips/dolma-forever/tools/render_all.sh | bash -s -- --preview
 ```
 
-Sans `--preview` : le master 1080p (environ 2 Go). Il reste hors dépôt : `tmp/` est ignoré par Git.
+Sans `--preview` : le master 1080p. Mesuré ici : 20 s de vidéo en 4 min 15 s, donc environ 50 min pour la chanson (2 processeurs). Le fichier pèse quelques dizaines de Mo. Il reste hors dépôt : `tmp/` est ignoré par Git.
+
+Sur Colab, deux cellules à lancer dans cet ordre (la première dure environ 1 h) :
+
+```bash
+%%bash
+set -o pipefail
+# 1) Bibliothèques demandées par Chrome (une fois par session)
+apt-get update -qq
+apt-get install -y -qq --no-install-recommends $(for p in libnss3 libatk1.0-0 libatk-bridge2.0-0 libatk-bridge2.0-0t64 libcups2 libcups2t64 libgbm1 libasound2 libasound2t64 libxkbcommon0 libxcomposite1 libxdamage1 libxrandr2 libxss1 libpango-1.0-0 libcairo2 fonts-liberation; do apt-cache show "$p" >/dev/null 2>&1 && echo "$p"; done) || echo "(certaines bibliothèques manquent : on continue)"
+# 2) Rendu complet 1080p. Garder l'onglet ouvert.
+curl -fsSL https://raw.githubusercontent.com/Thierryaco/clip-arm/arena/6075c539-clip-arm/clips/dolma-forever/tools/render_all.sh | bash
+```
+
+```python
+# 3) Copie du master vers Google Drive (une fois la cellule précédente terminée)
+import os, shutil
+from google.colab import drive
+drive.mount('/content/drive')
+src = os.path.expanduser('~/dolma-forever-render/clip-arm/clips/dolma-forever/tmp/render/dolma-forever.mp4')
+dst = '/content/drive/MyDrive/dolma-forever-1080p.mp4'
+shutil.copy(src, dst)
+print('Copié :', dst, f'({os.path.getsize(dst) / 1e6:.0f} Mo)')
+```
+
+Si la session Colab se coupe, relancer la cellule 2 : il n'y a pas de reprise, le rendu repart de zéro.
+
 
 ## Taille
 

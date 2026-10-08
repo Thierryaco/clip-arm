@@ -110,7 +110,7 @@ chanson est une page du livre. Une cuisinière virtuelle, entièrement généré
    (L10, L14, L25, L26, L34).
 6. **Rendu** : ce sandbox n'a **ni Chrome ni ffmpeg**, et ne peut pas télécharger le modèle Whisper ni les images Google.
    Le rendu 1080p se fait sur la machine de l'utilisateur (Chrome headless avec puppeteer-core, ffmpeg en H.264).
-   Le master fait environ 2 Go : il ne va **pas** sur GitHub (limite 100 Mo par fichier). Une version web légère
+   Le master pèse quelques dizaines de Mo (mesure : 2,1 Mo pour 20 s, §12) : il reste hors dépôt (`tmp/` ignoré par Git). Une version web légère
    (crf 20, maxrate 14 M) peut être versionnée si elle reste sous 100 Mo, mais ce n'est pas nécessaire.
 
 ## 7. Commandes utiles
@@ -226,7 +226,7 @@ Le script clone la branche, installe ffmpeg (apt) et puppeteer (qui télécharge
 Options : `--preview` (960×540, rapide), `--from 40 --to 60` (extrait). Sortie : `clips/dolma-forever/tmp/render/` (ignoré par Git).
 Testé dans le sandbox sur un extrait de 2 s en aperçu (sans téléchargement de Chrome, avec CHROME_PATH et FFMPEG fournis). Le téléchargement de Chrome et l'appel `raw.githubusercontent.com` n'ont pas pu être testés ici.
 
-Sur Colab : le fichier est créé sur le disque temporaire de la session (`/root/dolma-forever-render/...`), pas sur le disque de l'utilisateur. Le télécharger avant la fin de la session (cellule Python : `from google.colab import files; files.download(chemin)`). Le master est long à rendre sur Colab : garder l'onglet ouvert, ou faire le rendu par morceaux (`--from/--to`). Non testé sur Colab.
+Sur Colab : le fichier est créé sur le disque temporaire de la session (`/root/dolma-forever-render/...`), pas sur le disque de l'utilisateur. Le télécharger avant la fin de la session (cellule Python : `from google.colab import files; files.download(chemin)`). Le master prend environ 50 min ici (mesuré : 20 s en 255 s, 2 processeurs) ; garder l'onglet ouvert. Deux cellules Colab (bibliothèques de Chrome, puis rendu ; copie vers Drive) sont dans le README. Non testé sur Colab : l'accès n'est pas possible depuis le sandbox, mais le même script a été testé en 1080p ici.
 
 ## 12. Mise à jour : session du 8 oct. 2026 (branche `arena/6075c539-clip-arm`)
 
@@ -244,6 +244,7 @@ Sur Colab : le fichier est créé sur le disque temporaire de la session (`/root
 - Captures (Chromium 153) : t = 85 (menu : L11b au karaoké), 146,5 (fête : L22b), 183 (L25 : « Dolma » en cours), 210 (Encore : L30, cuisinière visible), 218,5 (Encore : L33, karaoké sans chevauchement).
 - Lip-sync L02 : bouche fermée à 40,40 s, ouverte à 40,47 s, clignement à 40,70–40,83 s.
 - Rendu séquentiel et rendu isolé identiques au pixel près sur 40–46 s (PSNR ≥ 55 dB) : `render.mjs` n'a pas besoin de changer.
+- Rendu 1080p par `render_all.sh` (clone GitHub, `aa0b2b1`) : extrait de 10 s, 1920×1080, 30 i/s, AAC 48 kHz. Mesure : 20 s de vidéo rendues en 255 s (2 processeurs), soit environ 50 min pour la chanson.
 
 **Ce qui reste à écouter ou à décider.**
 1. L26–L29 : jouées une fois ou deux fois ? La transcription ne les donne qu'une fois (3:16–3:28). Le §3 et `paroles.json` disent deux fois.
