@@ -4,15 +4,16 @@
 //   node tools/render.mjs --preview            -> 960x540 (aperçu rapide)
 //   node tools/render.mjs --from 40 --to 60    -> seulement l'intervalle 40–60 s (audio compris)
 //   node tools/render.mjs --out chemin.mp4     -> autre fichier de sortie
-// Prérequis : Node 18+, npm i puppeteer-core ; un Chrome dont le chemin est dans CHROME_PATH ;
-//             ffmpeg dans le PATH (ou chemin dans FFMPEG).
+// Prérequis : Node 18+, npm i puppeteer (télécharge Chrome) ; ffmpeg dans le PATH (ou chemin dans FFMPEG).
+// CHROME_PATH (optionnel) : un Chrome déjà installé à utiliser à la place de celui de puppeteer.
+// Le plus simple : tools/render_all.sh (installe tout et lance ce script).
 // CLIP_DIR (optionnel) : dossier du clip, si le script n'est pas lancé depuis tools/.
 // Le rendu ne dépend que de t : même t => même image (voir pages/book.js).
 import { mkdirSync, statSync } from 'node:fs';
 import { dirname, resolve, join } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { spawn } from 'node:child_process';
-import puppeteer from 'puppeteer-core';
+import puppeteer from 'puppeteer';
 
 const args = process.argv.slice(2);
 const opt = (name, def) => {
@@ -52,7 +53,7 @@ const ffDone = new Promise((res, rej) => ff.on('exit', (code) => (code === 0 ? r
 
 const chromePath = process.env.CHROME_PATH;
 const browser = await puppeteer.launch({
-  executablePath: chromePath,
+  executablePath: chromePath || undefined,
   headless: true,
   args: ['--no-sandbox', '--disable-gpu', '--font-render-hinting=none'],
 });
