@@ -78,7 +78,8 @@ Une seule chaîne : `paroles.json` → audio → `timings/timings.json` → tout
 
 ```bash
 python3 tools/transcribe.py      # sur ta machine : audio/transcript.json (faster-whisper, mots horodatés)
-python3 tools/sync.py            # analyse audio + alignement des 35 lignes + E01 + contrôle
+python3 tools/sync.py            # analyse audio + alignement des 35 lignes + E01 + 8 passages répétés + contrôle
+python3 tools/sync.py --reuse-analysis   # sans librosa : garde core/audio-analysis.js, recalcule les temps
 node tools/test_engine_state.js  # teste l'état du clip à différents instants
 ```
 
@@ -91,7 +92,7 @@ node tools/test_engine_state.js  # teste l'état du clip à différents instants
 - **Alignement** : chaque ligne est recherchée dans la transcription, dans l'ordre (les refrains répétés ne peuvent pas
   « sauter »). Un mot omis est interpolé à l'intérieur de sa ligne. Le script avertit si une section s'écarte de plus de
   8 s des estimations de départ, ou si moins de 60 % des mots sont reconnus.
-- **Corrections à l'oreille** : `timings/overrides.json`, par exemple `{"L05": {"start": 46.2}}`. Relance ensuite
+- **Corrections à l'oreille** : `timings/overrides.json`, par exemple `{"L05": {"start": 46.2}}`, un temps par mot `{"L25": {"words": [...]}}`, ou un passage répété `"repeats": {"L10": {"start": 81.7}}` (crée `L10b`, karaoké seulement, sans case). Relance ensuite
   `sync.py` : la correction est prioritaire, et le contrôle refuse les chevauchements.
 - `python3 tools/sync.py --check` vérifie seulement `timings.json` (ordre, durées, dépassements).
 

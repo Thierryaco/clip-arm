@@ -62,4 +62,17 @@ bands.forEach((v) => assert.ok(v >= 0 && v <= 1));
 const e = D.lines.find((l) => l.echo);
 if (e) assert.strictEqual(E.stateAt(e.start + 0.05, D, A).line.echo, true);
 
-console.log(`engine-state : tous les tests passent (${D.lines.length} lignes, ${A.beats.length} beats)`);
+// 9) passages répétés (refrains chantés deux fois) : même texte que la ligne d'origine, jouée après elle,
+//    et pendant le passage répété, le karaoké suit bien la répétition
+const reps = D.lines.filter((l) => l.repeat);
+for (const r of reps) {
+  const base = line(r.id.slice(0, -1));
+  assert.ok(base, `ligne d'origine de ${r.id}`);
+  assert.strictEqual(r.text, base.text, `${r.id} : texte différent de ${base.id}`);
+  assert.ok(r.start >= base.end - 1e-6, `${r.id} commence avant la fin de ${base.id}`);
+  const st = E.stateAt(r.start + 0.1, D, A);
+  assert.strictEqual(st.line.id, r.id, `karaoké de ${r.id}`);
+  assert.strictEqual(st.line.inside, true, `${r.id} active pendant son passage`);
+}
+
+console.log(`engine-state : tous les tests passent (${D.lines.length} lignes dont ${reps.length} passages répétés, ${A.beats.length} beats)`);

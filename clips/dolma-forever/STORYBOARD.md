@@ -8,6 +8,7 @@ le script et le storyboard reste valide.
 - Une image pour chaque ligne chantée : ce qui est dessiné doit être lisible en une demi-seconde.
 - Les changements de page tombent sur un beat (`analysis.beats`), jamais entre deux beats.
 - La cuisinière est présente sur les lignes chantées (photo collée, lip-sync selon `voice`).
+- Un refrain chanté deux fois (L10–L13, L21–L24) : le second passage (L10b–L13b, L21b–L24b) se suit au karaoké, sans case en plus.
 - Le mot actif s'allume en karaoké (`wordIndex` de `EngineState.stateAt`).
 - Aucun logo ni interface de marque : les tampons sont génériques.
 
@@ -25,7 +26,7 @@ le script et le storyboard reste valide.
 | bridge | 117,16 – 131,80 | « Souvenirs » (p. 6) | `assets/plats/souvenirs.jpg` |
 | chorus_2 | 131,80 – 155,12 | « Fête » (p. 7) | `assets/plats/fete.jpg` |
 | outro | 155,12 – 196,76 | « Fin de la recette » (p. 8) | `assets/plats/fin.jpg` |
-| outro_reprise | 196,76 – 239,92 | « Encore ! » (p. 9), deux colonnes, sans cuisinière | aucune |
+| outro_reprise | 196,76 – 239,92 | « Encore ! » (p. 9), deux colonnes, cuisinière dans le coin bas-droit (choix du 8 oct. 2026) | bouche et clignement (lip-sync) |
 
 Écart avec le plan initial : la reprise finale n'est pas un « menu » qui se superpose, mais une page « Encore ! » où les dix lignes se cochent en deux colonnes. Les titres de pages sont provisoires (à valider).
 
@@ -87,14 +88,14 @@ le script et le storyboard reste valide.
 
 | id | texte | à l'écran | rythme |
 |---|---|---|---|
-| L25 | Hay hay hay, aïdé à table ! Dolma forever… | Tampon « Dolma forever » final. Les couverts disparaissent un à un, les lumières baissent. | les claps (`onset`) font disparaître un couvert |
+| L25 | Aïe aïe aïe… aïdé à table ! Dolma forever… | Tampon « Dolma forever » final. Les couverts disparaissent un à un, les lumières baissent. | les claps (`onset`) font disparaître un couvert |
 | E01 | (écho) beureK… keufté… pasteurmaaa… lavashhhh… | Les mots de l'écho s'effacent du plus fort au plus lointain, puis fondu au noir. | chaque mot s'efface à son temps |
 
 ---
 
 ## Reprise finale (audio uniquement) : page « Encore ! » (construite, voir le tableau ci-dessus)
 
-Absente du texte Suno, présente dans la chanson. Structure : L26 à L29 jouées deux fois, puis deux « R roulé » à la fin.
+Absente du texte Suno, présente dans la chanson. Structure : L26 à L29 jouées deux fois (à confirmer : la transcription ne les donne qu'une fois), puis deux « R roulé » à la fin.
 Les mots viennent du refrain et des consignes de l'outro, à valider à l'écoute.
 
 | id | texte | à l'écran | rythme |
@@ -115,8 +116,10 @@ Les mots viennent du refrain et des consignes de l'outro, à valider à l'écout
 - Reprise finale L26–L35 : confirmer les mots, l'ordre et le nombre de lignes de la seconde passe (L30–L33).
 - E01 (écho) : gardé à sa place (après « Dolma forever »), décision validée.
 - Graphie unique de « beureK » à l'écran.
-- Refrains 1 et 2 chantés deux fois (1:22–1:33 et 2:24–2:35 d'après la transcription) : le second passage n'est affiché nulle part. À décider (PROMPT_REPRISE.md, §12).
-- L25 : « Aïe aïe aïe » jusqu'à environ 3:01, puis « aïdé à table ! Dolma forever » vers 3:01–3:03. Le karaoké affiche « Dolma forever » dès 2:37 : à corriger quand le texte est confirmé (§12).
-- Reprise, 3:28–3:37 : la transcription entend « Pour un café de repas », qui n'est dans aucune ligne. Texte à confirmer (§12).
-- Page « Encore ! » : sans cuisinière, alors que la règle commune ci-dessus la veut sur les lignes chantées. À trancher.
-- L10 et L21 : l'annotation « r roulé » de la chanson n'est pas affichée (texte nettoyé), contrairement à la fiche L10 ci-dessus.
+- Décidé le 8 oct. 2026 : le second passage des refrains (1:22–1:33 et 2:24–2:35) est suivi au karaoké (L10b–L13b, L21b–L24b), sans case en plus. Temps du premier mot tirés de la transcription (±0,5 s) : à vérifier à l'écoute.
+- Décidé le 8 oct. 2026 : L25 = « Aïe aïe aïe… aïdé à table ! Dolma forever… ». « Aïe aïe aïe » (2:35) validé à l'écoute ; « aïdé à table ! Dolma forever… » (3:01–3:03) d'après la transcription : à vérifier à l'écoute.
+- Décidé le 8 oct. 2026 : à 3:28, « Dolma, keufté, beureK, R roulé » (L30 gardé). « Pour un café de repas », entendu par la transcription, n'est pas ajouté.
+- Ouvert : L31 à 3:31,5. La transcription entend « Soudjouk qui craque », pas « Bouboules keufté… ». À écouter.
+- Décidé le 8 oct. 2026 : cuisinière sur « Encore ! » (coin bas-droit ; la colonne droite est rétrécie pour la laisser libre).
+- Ouvert : L26–L29 jouées une fois ou deux fois ? La transcription ne les donne qu'une fois (3:16–3:28).
+- Ouvert : l'annotation « r roulé » de L10 et L21 n'est pas affichée (texte nettoyé), contrairement à la fiche L10 ci-dessus.

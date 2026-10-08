@@ -4,7 +4,8 @@
 Entrées (dans le dossier du clip) :
   audio/song.mp3              la chanson (obligatoire)
   audio/transcript.json       transcription mot par mot (tools/transcribe.py) : alignement automatique
-  timings/overrides.json      corrections manuelles, prioritaires : {"L05": {"start": 46.2}, "sections": {...}}
+  timings/overrides.json      corrections manuelles, prioritaires : début d'une ligne (start), temps de chaque mot
+                              (words), passages répétés (repeats : ligne chantée une seconde fois, karaoké seulement)
   lyrics/paroles.json         paroles officielles, sections, lignes, prononciation
 
 Sorties :
@@ -18,6 +19,7 @@ Usage :
   python tools/sync.py                      # tout
   python tools/sync.py --check              # vérifie seulement timings.json (sans audio)
   python tools/sync.py --features-only      # analyse audio seule
+  python tools/sync.py --reuse-analysis     # sans librosa : garde l'analyse audio, recalcule les temps
 """
 import argparse
 import difflib
@@ -281,13 +283,22 @@ def apply_overrides(lines, overrides, duration):
                   for k in range(len(ws) - 1) if ws[k + 1]["s"] > ws[k]["s"])
     dt = min(0.9, max(0.2, gaps[len(gaps) // 2])) if gaps else 0.42
     for lid, ov in overrides.items():
-        if lid == "sections" or lid.startswith("_"):
+        if lid in ("sections", "repeats") or lid.startswith("_"):
             continue
         if lid not in by_id:
             print(f"  ! override ignoré : {lid} n'existe pas", file=sys.stderr)
             continue
         line = by_id[lid]
-        if "start" in ov:
+        if "words" in ov:
+            # temps de chaque mot, un par mot (ex. « Aïe aïe aïe… » suivi de mots à un autre endroit)
+            times = [float(x) for x in ov["words"]]
+            if len(times) != len(line["words"]):
+                print(f"  ! {lid} : {len(times)} temps pour {len(line['words'])} mots, ignoré", file=sys.stderr)
+                continue
+            for w, t in zip(line["words"], times):
+                w["s"] = round(t, 3)
+            changed.append(lid)
+        elif "start" in ov:
             t0 = float(ov["start"])
             for k, w in enumerate(line["words"]):
                 w["s"] = round(t0 + k * dt, 3)
@@ -296,6 +307,30 @@ def apply_overrides(lines, overrides, duration):
     if changed:
         finish_lines(lines, duration)
     return changed
+
+
+def add_repeats(out_lines, repeats, duration):
+    """Passages répétés, par ex. un refrain chanté deux fois : {"L10": {"start": 81.7}} (ou {"L10": 81.7}).
+    La copie L10b garde le texte de L10 et l'écart entre ses mots. Elle sert au karaoké, sans case en plus :
+    la case de L10 est déjà cochée. Les lignes sont retriées par temps après l'ajout (moteur : recherche par début)."""
+    made = []
+    for lid, spec in (repeats or {}).items():
+        if lid.startswith("_"):
+            continue
+        base = next((l for l in out_lines if l["id"] == lid), None)
+        if base is None:
+            print(f"  ! répétition ignorée : {lid} n'existe pas", file=sys.stderr)
+            continue
+        t0 = float(spec["start"] if isinstance(spec, dict) else spec)
+        shift = t0 - base["words"][0]["s"]
+        made.append({"id": lid + "b", "section": base["section"], "text": base["text"], "echo": False,
+                     "repeat": True, "source": "manuel",
+                     "words": [{"w": w["w"], "s": round(w["s"] + shift, 3)} for w in base["words"]]})
+    if made:
+        out_lines.extend(made)
+        out_lines.sort(key=lambda l: l["words"][0]["s"])
+        finish_lines(out_lines, duration)
+    return [l["id"] for l in made]
 
 
 def build_sections(lines, lyrics, duration):
@@ -332,6 +367,7 @@ def write_outputs(root, lines, sections, meta, lyrics, analysis, warnings):
         "lines": [{"id": l["id"], "section": l["section"], "start": l["start"], "end": l["end"],
                    "echo": l["echo"], "text": l["text"],
                    "source": l.get("source", meta["source"]),
+                   **({"repeat": True} if l.get("repeat") else {}),
                    "words": l["words"]} for l in lines],
         "warnings": warnings,
     }
@@ -344,6 +380,8 @@ def write_outputs(root, lines, sections, meta, lyrics, analysis, warnings):
           "| id | début | fin | section | texte |", "|---|---|---|---|---|"]
     for l in lines:
         md.append(f"| {l['id']} | {fmt(l['start'])} | {fmt(l['end'])} | {l['section']} | {l['text']} |")
+    if any(l.get("repeat") for l in lines):
+        md += ["", "Une ligne `Lnnb` est le second passage de `Lnn` : karaoké seulement, sans case en plus."]
     md += ["", "## Sections", "", "| section | début | fin |", "|---|---|---|"]
     for s in sections:
         md.append(f"| {s['id']} | {fmt(s['start'])} | {fmt(s['end'])} |")
@@ -356,6 +394,7 @@ def write_outputs(root, lines, sections, meta, lyrics, analysis, warnings):
     ld = {"duration": meta["duration"], "source": meta["source"],
           "lines": [{"id": l["id"], "section": l["section"], "text": l["text"], "echo": l["echo"],
                      "start": l["start"], "end": l["end"],
+                     **({"repeat": True} if l.get("repeat") else {}),
                      "words": [[w["w"], w["s"], w["e"]] for w in l["words"]]} for l in lines],
           "sections": sections}
     (core / "lyrics-data.js").write_text(
@@ -370,10 +409,14 @@ def check_timings(root, lyrics):
         return 1
     t = json.loads(path.read_text(encoding="utf-8"))
     errs = []
-    ids = [l["id"] for l in t["lines"]]
+    reps = [l["id"] for l in t["lines"] if l.get("repeat")]
+    ids = [l["id"] for l in t["lines"] if not l.get("repeat")]
     expected = [l["id"] for l in load_lines(lyrics)]
     if ids != expected:
         errs.append(f"ids de lignes différents des paroles : {ids} vs {expected}")
+    for r in reps:
+        if r[:-1] not in ids:
+            errs.append(f"{r} : la ligne d'origine {r[:-1]} n'existe pas")
     prev_end = 0
     for l in t["lines"]:
         if l["start"] < prev_end - 1e-6:
@@ -386,10 +429,20 @@ def check_timings(root, lyrics):
     for s in t["sections"]:
         if s["end"] <= s["start"]:
             errs.append(f"section {s['id']} vide")
-    print(f"timings : {len(ids)} lignes, source={t['source']}, {len(errs)} erreur(s)")
+    extra = f" + {len(reps)} passages répétés" if reps else ""
+    print(f"timings : {len(ids)} lignes{extra}, source={t['source']}, {len(errs)} erreur(s)")
     for e in errs:
         print("  ✗", e)
     return 1 if errs else 0
+
+
+def load_analysis_js(path: Path) -> dict:
+    """Relit core/audio-analysis.js (format : « window.AUDIO_ANALYSIS = {...}; »)."""
+    text = path.read_text(encoding="utf-8")
+    marker = "window.AUDIO_ANALYSIS = "
+    if marker not in text:
+        raise SystemExit(f"{path.name} : format inattendu. Lance sans --reuse-analysis pour le régénérer.")
+    return json.loads(text[text.index(marker) + len(marker):].strip().rstrip(";"))
 
 
 def main() -> int:
@@ -397,6 +450,8 @@ def main() -> int:
     ap.add_argument("--root", default=str(ROOT))
     ap.add_argument("--check", action="store_true")
     ap.add_argument("--features-only", action="store_true")
+    ap.add_argument("--reuse-analysis", action="store_true",
+                    help="relit core/audio-analysis.js au lieu de réanalyser l'audio (sans librosa ni numpy)")
     args = ap.parse_args()
     root = Path(args.root)
     lyrics = json.loads((root / "lyrics" / "paroles.json").read_text(encoding="utf-8"))
@@ -404,20 +459,26 @@ def main() -> int:
     if args.check:
         return check_timings(root, lyrics)
 
-    audio = root / "audio" / "song.mp3"
-    if not audio.exists():
-        print(f"Pas de chanson : dépose le MP3 dans {audio.relative_to(root)}", file=sys.stderr)
-        return 1
+    if args.reuse_analysis:
+        # Les features audio ne bougent pas : on garde celles déjà validées (évite une réanalyse qui
+        # changerait beats et voix sur une autre version de librosa). Seuls les temps sont recalculés.
+        analysis = load_analysis_js(root / "core" / "audio-analysis.js")
+        print(f"1/3 analyse audio : réutilisée (core/audio-analysis.js, {analysis['duration']:.2f} s)")
+    else:
+        audio = root / "audio" / "song.mp3"
+        if not audio.exists():
+            print(f"Pas de chanson : dépose le MP3 dans {audio.relative_to(root)}", file=sys.stderr)
+            return 1
 
-    print("1/3 analyse audio (30 i/s)…")
-    analysis = analyse_audio(audio)
-    (root / "audio").mkdir(exist_ok=True)
-    (root / "audio" / "analysis.json").write_text(json.dumps(analysis), encoding="utf-8")
-    (root / "core").mkdir(exist_ok=True)
-    (root / "core" / "audio-analysis.js").write_text(
-        "// Généré par tools/sync.py : ne pas éditer.\nwindow.AUDIO_ANALYSIS = "
-        + json.dumps(analysis) + ";\n", encoding="utf-8")
-    print(f"    durée {analysis['duration']:.2f} s · tempo {analysis['tempo']} BPM · {len(analysis['beats'])} beats")
+        print("1/3 analyse audio (30 i/s)…")
+        analysis = analyse_audio(audio)
+        (root / "audio").mkdir(exist_ok=True)
+        (root / "audio" / "analysis.json").write_text(json.dumps(analysis), encoding="utf-8")
+        (root / "core").mkdir(exist_ok=True)
+        (root / "core" / "audio-analysis.js").write_text(
+            "// Généré par tools/sync.py : ne pas éditer.\nwindow.AUDIO_ANALYSIS = "
+            + json.dumps(analysis) + ";\n", encoding="utf-8")
+        print(f"    durée {analysis['duration']:.2f} s · tempo {analysis['tempo']} BPM · {len(analysis['beats'])} beats")
     if args.features_only:
         return 0
 
@@ -440,6 +501,9 @@ def main() -> int:
         warnings.append(f"Seulement {ratio:.0%} des mots reconnus : vérifie les lignes à l'écoute.")
 
     changed = apply_overrides(out_lines, overrides, duration)
+    repeated = add_repeats(out_lines, overrides.get("repeats", {}), duration)
+    if repeated:
+        print(f"    passages répétés (karaoké) : {', '.join(repeated)}")
     for l in out_lines:
         if l["id"] in changed:
             l["source"] = "manuel"

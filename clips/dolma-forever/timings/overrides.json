@@ -1,5 +1,5 @@
 {
-  "_commentaire": "Corrections des temps. L14, L18, L25 et L15 à L20 validées à l'écoute. L22 et E01 restent à vérifier. Pour changer un temps : {\"L14\": {\"start\": 100.2}}.",
+  "_commentaire": "Corrections des temps. L14 à L20 validées à l'écoute ; L22 et E01 à vérifier. Début d'une ligne : {\"L14\": {\"start\": 100.2}}. Temps de chaque mot : {\"L25\": {\"words\": [t1, t2, ...]}} (un temps par mot). Passages répétés : bloc \"repeats\" plus bas.",
   "_L22": "134.90 : à vérifier à l'écoute.",
   "L14": {
     "start": 100.2
@@ -25,15 +25,26 @@
   "L22": {
     "start": 134.9
   },
+  "_L25": "Texte : « Aïe aïe aïe… aïdé à table ! Dolma forever… » (choix de l'utilisateur). Mots 1 à 3 : « Aïe aïe aïe » à 2:35, validé à l'écoute. Mots 4 à 8 : « aïdé à table ! Dolma forever… » à 3:01–3:03, d'après la transcription (aïdé 180,94 ; à 181,15 ; table 181,40 ; Dolma 182,40 ; forever 183,30). À vérifier à l'écoute.",
   "L25": {
-    "start": 155.12
+    "words": [155.12, 155.4, 155.68, 180.94, 181.15, 181.4, 182.4, 183.3]
   },
   "_E01": "E01 : gardé à 3:04 (décision : l'écho reste à sa place dans la structure des paroles, Suno ne l'a pas respecté).",
   "E01": {
     "start": 184.0
   },
-  "_L25": "155.12 : validé à l'écoute (« Aïe aïe aïe » remplace « Hay hay hay »).",
-  "_reprise": "L26–L29 : première passe. L30–L33 : seconde passe (L32 interpolé, à vérifier). L34–L35 : « R roulé » finaux. Temps issus des segments de la transcription. À valider.",
+  "_repeats": "Second passage des refrains (1:22–1:33 et 2:24–2:35) : même texte, karaoké une seconde fois, sans case en plus. Temps du premier mot de chaque ligne issus de la transcription (±0,5 s) ; le reste de la ligne suit le même écart. À vérifier à l'écoute.",
+  "repeats": {
+    "L10": {"start": 81.7},
+    "L11": {"start": 84.9},
+    "L12": {"start": 87.4},
+    "L13": {"start": 89.9},
+    "L21": {"start": 144.06},
+    "L22": {"start": 146.4},
+    "L23": {"start": 149.3},
+    "L24": {"start": 151.67}
+  },
+  "_reprise": "L26–L29 : première passe (la transcription ne les donne qu'une fois : à confirmer). L30–L33 : seconde passe. L30 « Dolma, keufté, beureK, R roulé » gardé tel quel (choix de l'utilisateur). L32 interpolé, à vérifier. L34–L35 : « R roulé » finaux. Temps issus des segments de la transcription. À valider.",
   "L26": {
     "start": 196.76
   },

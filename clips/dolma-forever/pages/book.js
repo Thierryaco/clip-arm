@@ -84,11 +84,12 @@
     bridge: { title: 'Souvenirs', arm: 'Հիշողություններ', num: 'p. 6', img: '../assets/plats/souvenirs.jpg', pos: '30% 85%', label: 'Au séchoir :' },
     chorus_2: { title: 'Fête', arm: 'Խնջույք', num: 'p. 7', img: '../assets/plats/fete.jpg', label: 'À table :' },
     outro: { title: 'Fin de la recette', arm: 'Բարի ախորժակ', num: 'p. 8', img: '../assets/plats/fin.jpg', label: 'Dernière bouchée :' },
-    outro_reprise: { title: 'Encore !', arm: 'Կրկին', num: 'p. 9', img: null, cols: 2, cook: false },
+    outro_reprise: { title: 'Encore !', arm: 'Կրկին', num: 'p. 9', img: null, cols: 2, cook: true },
   };
 
   function buildRecipePage(secId, cfg) {
-    const lines = LD.lines.filter((l) => l.section === secId && !l.echo);
+    // une case par ligne chantée ; les seconds passages (l.repeat) ne font que du karaoké, sans case en plus
+    const lines = LD.lines.filter((l) => l.section === secId && !l.echo && !l.repeat);
     const page = make('section', 'page hidden', stage);
     make('div', 'fold', page);
     make('div', 'hdr', page, cfg.title);
@@ -110,17 +111,19 @@
     const fontPx = cols === 2 ? 32 : (cfg.img && lines.length >= 4 ? 36 : 46);
     const lineH = Math.round(fontPx * 1.2);
     const boxW = 62; // case + marge
-    const textW = (cols === 2 ? 640 : width) - boxW;
+    // deux colonnes : la droite se rétrécit quand une cuisinière occupe le coin bas-droit (zone .cook, x ≥ 1262)
+    const hasCook = cfg.cook !== false;
+    const colW = (c) => (cols === 2 && c === 1 && hasCook ? 440 : (cols === 2 ? 640 : width));
     const top0 = cfg.label ? 230 : 200;
     const colY = Array(cols).fill(top0);
     const perCol = Math.ceil(lines.length / cols);
     const items = lines.map((ln, i) => {
       const c = cols === 2 ? Math.floor(i / perCol) : 0;
-      const nl = Math.max(1, Math.ceil(ln.text.length * fontPx * 0.42 / textW));
+      const nl = Math.max(1, Math.ceil(ln.text.length * fontPx * 0.42 / (colW(c) - boxW)));
       const row = make('div', 'ing off', page);
       setStyle(row, 'left', (cols === 2 ? 110 + c * 690 : left) + 'px');
       setStyle(row, 'top', colY[c] + 'px');
-      setStyle(row, 'width', (cols === 2 ? 640 : width) + 'px');
+      setStyle(row, 'width', colW(c) + 'px');
       setStyle(row, 'fontSize', fontPx + 'px');
       setStyle(row, 'lineHeight', lineH + 'px');
       make('span', 'box', row);

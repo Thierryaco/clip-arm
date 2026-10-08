@@ -635,7 +635,7 @@
    "id": "L13",
    "section": "chorus_1",
    "start": 78.24,
-   "end": 82.46,
+   "end": 81.7,
    "echo": false,
    "text": "À table en Arménie, on rit, on savoure, on vit !",
    "source": "audio",
@@ -688,7 +688,185 @@
     {
      "w": "vit",
      "s": 80.96,
-     "e": 82.46
+     "e": 81.7
+    }
+   ]
+  },
+  {
+   "id": "L10b",
+   "section": "chorus_1",
+   "start": 81.7,
+   "end": 84.18,
+   "echo": false,
+   "text": "Oh dolma, keufté, beureK",
+   "source": "manuel",
+   "repeat": true,
+   "words": [
+    {
+     "w": "Oh",
+     "s": 81.7,
+     "e": 82.22
+    },
+    {
+     "w": "dolma,",
+     "s": 82.22,
+     "e": 82.5
+    },
+    {
+     "w": "keufté,",
+     "s": 82.5,
+     "e": 82.78
+    },
+    {
+     "w": "beureK",
+     "s": 82.78,
+     "e": 84.18
+    }
+   ]
+  },
+  {
+   "id": "L11b",
+   "section": "chorus_1",
+   "start": 84.9,
+   "end": 87.4,
+   "echo": false,
+   "text": "Bouboules keufté qui fondent en bouche",
+   "source": "manuel",
+   "repeat": true,
+   "words": [
+    {
+     "w": "Bouboules",
+     "s": 84.9,
+     "e": 85.18
+    },
+    {
+     "w": "keufté",
+     "s": 85.18,
+     "e": 85.46
+    },
+    {
+     "w": "qui",
+     "s": 85.46,
+     "e": 85.74
+    },
+    {
+     "w": "fondent",
+     "s": 85.74,
+     "e": 86.38
+    },
+    {
+     "w": "en",
+     "s": 86.38,
+     "e": 86.5
+    },
+    {
+     "w": "bouche",
+     "s": 86.5,
+     "e": 87.4
+    }
+   ]
+  },
+  {
+   "id": "L12b",
+   "section": "chorus_1",
+   "start": 87.4,
+   "end": 89.9,
+   "echo": false,
+   "text": "Soudjouk qui craque, pasteurma qui pique",
+   "source": "manuel",
+   "repeat": true,
+   "words": [
+    {
+     "w": "Soudjouk",
+     "s": 87.4,
+     "e": 87.68
+    },
+    {
+     "w": "qui",
+     "s": 87.68,
+     "e": 87.9
+    },
+    {
+     "w": "craque,",
+     "s": 87.9,
+     "e": 88.46
+    },
+    {
+     "w": "pasteurma",
+     "s": 88.46,
+     "e": 89.02
+    },
+    {
+     "w": "qui",
+     "s": 89.02,
+     "e": 89.24
+    },
+    {
+     "w": "pique",
+     "s": 89.24,
+     "e": 89.9
+    }
+   ]
+  },
+  {
+   "id": "L13b",
+   "section": "chorus_1",
+   "start": 89.9,
+   "end": 94.12,
+   "echo": false,
+   "text": "À table en Arménie, on rit, on savoure, on vit !",
+   "source": "manuel",
+   "repeat": true,
+   "words": [
+    {
+     "w": "À",
+     "s": 89.9,
+     "e": 90.28
+    },
+    {
+     "w": "table",
+     "s": 90.28,
+     "e": 90.62
+    },
+    {
+     "w": "en",
+     "s": 90.62,
+     "e": 90.82
+    },
+    {
+     "w": "Arménie,",
+     "s": 90.82,
+     "e": 91.62
+    },
+    {
+     "w": "on",
+     "s": 91.62,
+     "e": 91.72
+    },
+    {
+     "w": "rit,",
+     "s": 91.72,
+     "e": 91.98
+    },
+    {
+     "w": "on",
+     "s": 91.98,
+     "e": 92.06
+    },
+    {
+     "w": "savoure,",
+     "s": 92.06,
+     "e": 92.34
+    },
+    {
+     "w": "on",
+     "s": 92.34,
+     "e": 92.62
+    },
+    {
+     "w": "vit",
+     "s": 92.62,
+     "e": 94.12
     }
    ]
   },
@@ -1126,7 +1304,7 @@
    "id": "L24",
    "section": "chorus_2",
    "start": 140.02,
-   "end": 144.22,
+   "end": 144.06,
    "echo": false,
    "text": "À table en Arménie, on rit, on savoure, on vit !",
    "source": "audio",
@@ -1179,7 +1357,185 @@
     {
      "w": "vit",
      "s": 142.72,
-     "e": 144.22
+     "e": 144.06
+    }
+   ]
+  },
+  {
+   "id": "L21b",
+   "section": "chorus_2",
+   "start": 144.06,
+   "end": 146.4,
+   "echo": false,
+   "text": "Oh dolma, keufté, beureK",
+   "source": "manuel",
+   "repeat": true,
+   "words": [
+    {
+     "w": "Oh",
+     "s": 144.06,
+     "e": 144.84
+    },
+    {
+     "w": "dolma,",
+     "s": 144.84,
+     "e": 145.12
+    },
+    {
+     "w": "keufté,",
+     "s": 145.12,
+     "e": 145.4
+    },
+    {
+     "w": "beureK",
+     "s": 145.4,
+     "e": 146.4
+    }
+   ]
+  },
+  {
+   "id": "L22b",
+   "section": "chorus_2",
+   "start": 146.4,
+   "end": 149.3,
+   "echo": false,
+   "text": "Bouboules keufté qui fondent en bouche",
+   "source": "manuel",
+   "repeat": true,
+   "words": [
+    {
+     "w": "Bouboules",
+     "s": 146.4,
+     "e": 146.68
+    },
+    {
+     "w": "keufté",
+     "s": 146.68,
+     "e": 146.96
+    },
+    {
+     "w": "qui",
+     "s": 146.96,
+     "e": 147.24
+    },
+    {
+     "w": "fondent",
+     "s": 147.24,
+     "e": 147.52
+    },
+    {
+     "w": "en",
+     "s": 147.52,
+     "e": 147.8
+    },
+    {
+     "w": "bouche",
+     "s": 147.8,
+     "e": 149.3
+    }
+   ]
+  },
+  {
+   "id": "L23b",
+   "section": "chorus_2",
+   "start": 149.3,
+   "end": 151.67,
+   "echo": false,
+   "text": "Soudjouk qui craque, pasteurma qui pique",
+   "source": "manuel",
+   "repeat": true,
+   "words": [
+    {
+     "w": "Soudjouk",
+     "s": 149.3,
+     "e": 149.76
+    },
+    {
+     "w": "qui",
+     "s": 149.76,
+     "e": 149.86
+    },
+    {
+     "w": "craque,",
+     "s": 149.86,
+     "e": 150.4
+    },
+    {
+     "w": "pasteurma",
+     "s": 150.4,
+     "e": 151.0
+    },
+    {
+     "w": "qui",
+     "s": 151.0,
+     "e": 151.24
+    },
+    {
+     "w": "pique",
+     "s": 151.24,
+     "e": 151.67
+    }
+   ]
+  },
+  {
+   "id": "L24b",
+   "section": "chorus_2",
+   "start": 151.67,
+   "end": 155.12,
+   "echo": false,
+   "text": "À table en Arménie, on rit, on savoure, on vit !",
+   "source": "manuel",
+   "repeat": true,
+   "words": [
+    {
+     "w": "À",
+     "s": 151.67,
+     "e": 152.07
+    },
+    {
+     "w": "table",
+     "s": 152.07,
+     "e": 152.39
+    },
+    {
+     "w": "en",
+     "s": 152.39,
+     "e": 152.61
+    },
+    {
+     "w": "Arménie,",
+     "s": 152.61,
+     "e": 153.35
+    },
+    {
+     "w": "on",
+     "s": 153.35,
+     "e": 153.51
+    },
+    {
+     "w": "rit,",
+     "s": 153.51,
+     "e": 153.77
+    },
+    {
+     "w": "on",
+     "s": 153.77,
+     "e": 153.82
+    },
+    {
+     "w": "savoure,",
+     "s": 153.81,
+     "e": 154.09
+    },
+    {
+     "w": "on",
+     "s": 154.09,
+     "e": 154.37
+    },
+    {
+     "w": "vit",
+     "s": 154.37,
+     "e": 155.12
     }
    ]
   },
@@ -1187,50 +1543,50 @@
    "id": "L25",
    "section": "outro",
    "start": 155.12,
-   "end": 158.58,
+   "end": 184.0,
    "echo": false,
-   "text": "Hay hay hay, aïdé à table ! Dolma forever…",
+   "text": "Aïe aïe aïe… aïdé à table ! Dolma forever…",
    "source": "manuel",
    "words": [
     {
-     "w": "Hay",
+     "w": "Aïe",
      "s": 155.12,
      "e": 155.4
     },
     {
-     "w": "hay",
+     "w": "aïe",
      "s": 155.4,
      "e": 155.68
     },
     {
-     "w": "hay,",
+     "w": "aïe…",
      "s": 155.68,
-     "e": 155.96
+     "e": 180.94
     },
     {
      "w": "aïdé",
-     "s": 155.96,
-     "e": 156.24
+     "s": 180.94,
+     "e": 181.15
     },
     {
      "w": "à",
-     "s": 156.24,
-     "e": 156.52
+     "s": 181.15,
+     "e": 181.4
     },
     {
      "w": "table",
-     "s": 156.52,
-     "e": 156.8
+     "s": 181.4,
+     "e": 182.4
     },
     {
      "w": "Dolma",
-     "s": 156.8,
-     "e": 157.08
+     "s": 182.4,
+     "e": 183.3
     },
     {
      "w": "forever…",
-     "s": 157.08,
-     "e": 158.58
+     "s": 183.3,
+     "e": 184.0
     }
    ]
   },

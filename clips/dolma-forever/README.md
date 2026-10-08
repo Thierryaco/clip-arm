@@ -16,7 +16,7 @@ Où en est le projet et ce qui reste à faire : [`PROMPT_REPRISE.md`](PROMPT_REP
 | `lyrics/paroles.json` | paroles, sections, prononciation |
 | `audio/song.mp3` | la chanson (239,9 s, stéréo 48 kHz ; copie de `kenji dolma.mp3`, dépôt `Thierryaco/congenial-dollop`) |
 | `audio/transcript.json` | transcription mot par mot, faite sur Colab (52 % des mots reconnus) |
-| `timings/overrides.json` | corrections manuelles des temps |
+| `timings/overrides.json` | corrections manuelles des temps (début de ligne, temps par mot, passages répétés) |
 | `timings/timings.json`, `timings/TIMINGS.md` | temps de chaque ligne (générés par `sync.py`) |
 | `core/engine-state.js` | état du clip à l'instant t (fonctions pures) |
 | `core/lyrics-data.js`, `core/audio-analysis.js` | données pour le navigateur (générées par `sync.py`) |
@@ -28,11 +28,12 @@ Où en est le projet et ce qui reste à faire : [`PROMPT_REPRISE.md`](PROMPT_REP
 
 ```bash
 python3 tools/sync.py --check     # vérifie timings/timings.json
-python3 tools/sync.py             # recalcule les temps (après une correction dans timings/overrides.json)
+python3 tools/sync.py --reuse-analysis   # recalcule les temps (après une correction dans timings/overrides.json), sans réanalyser l'audio
+python3 tools/sync.py             # réanalyse aussi l'audio (librosa, numpy) puis recalcule les temps
 node tools/test_engine_state.js   # tests du moteur
 ```
 
-`sync.py` demande `pip install librosa soundfile numpy`. `transcribe.py` demande `pip install faster-whisper` ; le modèle
+`sync.py` sans `--reuse-analysis` demande `pip install librosa soundfile numpy`. `transcribe.py` demande `pip install faster-whisper` ; le modèle
 Whisper se télécharge depuis Hugging Face, donc la transcription se fait sur ta machine (elle est déjà faite).
 
 Rendu, sur ta machine (terminal Linux, ou cellule `!` de Colab) :

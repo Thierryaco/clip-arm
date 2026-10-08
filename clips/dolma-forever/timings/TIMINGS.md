@@ -16,7 +16,11 @@ Source : **audio** · durée : 239.92 s · tempo : 105.9 BPM
 | L10 | 1:10.30 | 1:12.78 | chorus_1 | Oh dolma, keufté, beureK |
 | L11 | 1:13.96 | 1:15.94 | chorus_1 | Bouboules keufté qui fondent en bouche |
 | L12 | 1:15.94 | 1:18.24 | chorus_1 | Soudjouk qui craque, pasteurma qui pique |
-| L13 | 1:18.24 | 1:22.46 | chorus_1 | À table en Arménie, on rit, on savoure, on vit ! |
+| L13 | 1:18.24 | 1:21.70 | chorus_1 | À table en Arménie, on rit, on savoure, on vit ! |
+| L10b | 1:21.70 | 1:24.18 | chorus_1 | Oh dolma, keufté, beureK |
+| L11b | 1:24.90 | 1:27.40 | chorus_1 | Bouboules keufté qui fondent en bouche |
+| L12b | 1:27.40 | 1:29.90 | chorus_1 | Soudjouk qui craque, pasteurma qui pique |
+| L13b | 1:29.90 | 1:34.12 | chorus_1 | À table en Arménie, on rit, on savoure, on vit ! |
 | L14 | 1:40.20 | 1:43.38 | verse_3 | Kefta en boules rondes, dorées à souhait |
 | L15 | 1:44.22 | 1:47.40 | verse_3 | Dans la sauce tomate, un festin secret |
 | L16 | 1:47.74 | 1:50.92 | verse_3 | BeureK croustillant, fromage qui file et coule |
@@ -27,8 +31,12 @@ Source : **audio** · durée : 239.92 s · tempo : 105.9 BPM
 | L21 | 2:11.80 | 2:14.54 | chorus_2 | Oh dolma, keufté, beureK |
 | L22 | 2:14.90 | 2:17.68 | chorus_2 | Bouboules keufté qui fondent en bouche |
 | L23 | 2:17.68 | 2:20.02 | chorus_2 | Soudjouk qui craque, pasteurma qui pique |
-| L24 | 2:20.02 | 2:24.22 | chorus_2 | À table en Arménie, on rit, on savoure, on vit ! |
-| L25 | 2:35.12 | 2:38.58 | outro | Hay hay hay, aïdé à table ! Dolma forever… |
+| L24 | 2:20.02 | 2:24.06 | chorus_2 | À table en Arménie, on rit, on savoure, on vit ! |
+| L21b | 2:24.06 | 2:26.40 | chorus_2 | Oh dolma, keufté, beureK |
+| L22b | 2:26.40 | 2:29.30 | chorus_2 | Bouboules keufté qui fondent en bouche |
+| L23b | 2:29.30 | 2:31.67 | chorus_2 | Soudjouk qui craque, pasteurma qui pique |
+| L24b | 2:31.67 | 2:35.12 | chorus_2 | À table en Arménie, on rit, on savoure, on vit ! |
+| L25 | 2:35.12 | 3:04.00 | outro | Aïe aïe aïe… aïdé à table ! Dolma forever… |
 | E01 | 3:04.00 | 3:06.24 | outro | beureK… keufté… pasteurmaaa… lavashhhh… |
 | L26 | 3:16.76 | 3:19.38 | outro_reprise | Dolma, keufté, beureK, R roulé |
 | L27 | 3:19.76 | 3:22.66 | outro_reprise | Bouboules keufté qui fondent en bouche |
@@ -40,6 +48,8 @@ Source : **audio** · durée : 239.92 s · tempo : 105.9 BPM
 | L33 | 3:37.02 | 3:41.04 | outro_reprise | À table en Arménie, on rit, on savoure, on vit ! |
 | L34 | 3:42.96 | 3:43.94 | outro_reprise | R roulé… |
 | L35 | 3:46.64 | 3:47.62 | outro_reprise | R roulé… |
+
+Une ligne `Lnnb` est le second passage de `Lnn` : karaoké seulement, sans case en plus.
 
 ## Sections
 

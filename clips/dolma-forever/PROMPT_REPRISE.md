@@ -180,14 +180,14 @@ Assets cuisinière (`assets/cuisiniere/`) : `reference.jpg` (personnage choisi),
 - Page « Dolma » (t=45) : validée à l'œil. Paroles affichées sous « Chanté : ». Bug corrigé : le filtre utilisait `l.section`, absent de l'état ; il passe par `lineById[l.id].section`.
 
 Captures de contrôle : `tmp/snaps/` (ignoré par Git, ne pas versionner). Commande :
-`CLIP_DIR=$PWD CHROME_PATH=/tmp/chromium /tmp/chr/run_snap.sh <t…> --out tmp/snaps`
+`CLIP_DIR=$PWD CHROME_PATH=<chrome> node tools/snap.mjs <t…> --out tmp/snaps` (après `npm i puppeteer-core` dans le dossier du clip ; voir §12)
 (Chromium et puppeteer-core ne sont pas persistés : à réinstaller si la session repart de zéro.)
 
 À faire ensuite : pages restantes (Lavash, Menu, Kefta, Souvenirs, Fête, Fin de la recette, reprise finale) et leurs illustrations (generate_image) ; recaler `STORYBOARD.md` sur les temps finaux ; rendu 1080p sur la machine de l'utilisateur.
 
 ### Mise à jour : pages de recettes (suite de la section 11)
 
-- `pages/book.js` : `buildRecipePage(secId, cfg)` construit une page par section (table `RECIPE_PAGES`) : lavash (p. 3), menu (p. 4), kefta (p. 5), souvenirs (p. 6), fête (p. 7), fin de la recette (p. 8, sans illustration), reprise « Encore ! » (p. 9, deux colonnes, sans cuisinière).
+- `pages/book.js` : `buildRecipePage(secId, cfg)` construit une page par section (table `RECIPE_PAGES`) : lavash (p. 3), menu (p. 4), kefta (p. 5), souvenirs (p. 6), fête (p. 7), fin de la recette (p. 8, sans illustration), reprise « Encore ! » (p. 9, deux colonnes, avec cuisinière depuis le 8 oct. 2026 : voir §12).
 - Liste : une case par ligne chantée, cochée à `line.start`. Hauteur de chaque ligne estimée (≈ 0,42 em par caractère) pour éviter les chevauchements.
 - Illustrations ajoutées (`assets/plats/`) : `lavash.jpg`, `menu.jpg`, `kefta.jpg`, `souvenirs.jpg` (cadrage `pos: '30% 85%'`), `fete.jpg`. Vérifiées à l'œil.
 - Captures vérifiées : t = 60 (lavash), 90 (menu), 107 (kefta), 125 (souvenirs), 140 (fête), 160 (fin), 210 (reprise).
@@ -230,35 +230,36 @@ Sur Colab : le fichier est créé sur le disque temporaire de la session (`/root
 
 ## 12. Mise à jour : session du 8 oct. 2026 (branche `arena/6075c539-clip-arm`)
 
-**Branche.** Cette session est fixée sur `arena/6075c539-clip-arm`. Le travail de `arena/2748952e-clip-arm` y a été reporté jusqu'au commit `cf182c7` (fast-forward) : les deux branches sont identiques jusqu'à ce commit. `arena/2748952e-clip-arm` n'a pas été modifiée. Les commits de cette session sont sur `arena/6075c539-clip-arm` seulement.
+**Branche et dépôt.** Cette session est fixée sur `arena/6075c539-clip-arm`. Le travail de `arena/2748952e-clip-arm` y a été reporté jusqu'à `cf182c7` (fast-forward). `arena/2748952e-clip-arm` n'a pas été modifiée. Commits de la session : `e9776cd` (rendu en une commande, docs à jour), puis le commit des décisions ci-dessous. Si le dépôt local repart d'un clone sans cet historique, la branche distante fait foi.
+
+**Décisions prises (réponses de l'utilisateur, 8 oct. 2026).**
+1. **Refrains** : le second passage est affiché au karaoké (L10b–L13b, L21b–L24b), sans case en plus : huit cases de plus ne tiennent pas sur la page « Menu » sans refaire la mise en page. Temps du premier mot (transcription) : 1:21,70 ; 1:24,90 ; 1:27,40 ; 1:29,90 ; 2:24,06 ; 2:26,40 ; 2:29,30 ; 2:31,67. Le reste de chaque ligne suit le même écart. **À vérifier à l'écoute.**
+2. **L25** : « Aïe aïe aïe… aïdé à table ! Dolma forever… » (remplace « Hay hay hay, … »). « Aïe aïe aïe » (2:35) validé à l'écoute. Mots 4 à 8 à 3:00,94 ; 3:01,15 ; 3:01,40 ; 3:02,40 ; 3:03,30 (transcription). **À vérifier à l'écoute.**
+3. **Reprise à 3:28** : « Dolma, keufté, beureK, R roulé » (L30 gardé). « Pour un café de repas », entendu par la transcription, n'est pas ajouté.
+4. **Cuisinière sur « Encore ! »** : ajoutée (`cook: true`), dans le coin bas-droit comme sur les autres pages. La colonne droite de la liste passe à 440 px pour ne pas la recouvrir. Cela remplace le choix du §11 (« sans cuisinière »).
 
 **Vérifié.**
-- `python3 tools/sync.py --check` : 36 lignes, 0 erreur. `node tools/test_engine_state.js` : passe.
-- 16 captures (planche de contrôle) et une capture à 223,5 s : pages et cases cochées aux bons temps (L10, L14, L25, L26, L34). Le karaoké de L25 reste à corriger (point 3 ci-dessous).
-- Lip-sync sur L02 : bouche fermée à 40,40 s, ouverte à 40,47 s, clignement à 40,70–40,83 s.
-- Rendu séquentiel (comme `render.mjs`) et rendu isolé identiques au pixel près sur 40–46 s (PSNR ≥ 55 dB, 13 images identiques) : `render.mjs` n'a pas besoin de changer.
-- Rendu d'aperçu de bout en bout (2 s, H.264 + AAC) et `render_all.sh` lancé par `cat … | bash -s --` : OK.
+- `python3 tools/sync.py --check` : 36 lignes + 8 passages répétés, 0 erreur. `node tools/test_engine_state.js` : passe (44 lignes).
+- `python3 tools/sync.py --reuse-analysis` : sans librosa, garde `core/audio-analysis.js`. Sans changement de contenu, il reproduit à l'octet près les fichiers committés.
+- Captures (Chromium 153) : t = 85 (menu : L11b au karaoké), 146,5 (fête : L22b), 183 (L25 : « Dolma » en cours), 210 (Encore : L30, cuisinière visible), 218,5 (Encore : L33, karaoké sans chevauchement).
+- Lip-sync L02 : bouche fermée à 40,40 s, ouverte à 40,47 s, clignement à 40,70–40,83 s.
+- Rendu séquentiel et rendu isolé identiques au pixel près sur 40–46 s (PSNR ≥ 55 dB) : `render.mjs` n'a pas besoin de changer.
 
-**Ce que la transcription contredit ou laisse ouvert.** Heures au format m:ss, d'après `audio/transcript.json` (52 % des mots reconnus : peu fiable, à écouter).
-1. Refrain 1 chanté deux fois : 1:10–1:22 (L10–L13), puis 1:22–1:33 avec le même texte. Le second passage n'est affiché nulle part.
-2. Refrain 2 chanté deux fois : 2:12–2:24 (L21–L24), puis 2:24–2:35. Le début du second passage est mal transcrit (« Oudema a cofté pour le marminister », 2:24) ; les lignes suivantes correspondent à L22–L24.
-3. L25 (2:35) : « Aïe aïe aïe » jusqu'à environ 3:01, puis « aïdé à table ! Dolma forever » vers 3:01–3:03 (transcription : « Réalier table Dolma forever », 3:00,9–3:03,3). Le karaoké actuel fait « Dolma forever » à 2:37, soit environ 25 s d'avance. Texte exact à confirmer avant de retemporiser.
-4. E01 (3:04) : aucun mot transcrit entre 3:03 et 3:17. À vérifier : l'écho est-il chanté à cet endroit ?
-5. Reprise, première passe (3:16,8–3:28,8) : la transcription donne L26–L29 une seule fois. La section 3 dit « L26–L29 jouées deux fois » : à confirmer.
-6. Reprise, seconde passe (3:28–3:37) : la transcription entend « Pour un café de repas » (3:28,8), « Soudjouk qui craque » (3:31,5), « pasteurma qui pique » (3:35,8), « À table en Arménie… on vit » (3:37,0). Les lignes prévues à ces temps sont L30 « Dolma, keufté, beureK, R roulé », L31 « Bouboules… », L32 (3:34,3, interpolée) et L33. « Pour un café de repas » est cité comme passage chanté dans le commit `1142be3`, mais n'est dans aucune ligne de `lyrics/paroles.json`.
-7. L34 et L35 (« R roulé », 3:42,96 et 3:46,64) : cohérents avec la transcription.
-
-**Décisions en attente.**
-- Afficher ou non les seconds passages des refrains (points 1 et 2).
-- Texte et temps de L25 et de la reprise (points 3, 5 et 6).
-- Cuisinière sur la page « Encore ! » ? Elle est absente (choix du §11), alors que le §10 demande de vérifier la bouche sur L26.
+**Ce qui reste à écouter ou à décider.**
+1. L26–L29 : jouées une fois ou deux fois ? La transcription ne les donne qu'une fois (3:16–3:28). Le §3 et `paroles.json` disent deux fois.
+2. L31 à 3:31,5 : la transcription entend « Soudjouk qui craque », pas « Bouboules keufté… ». L32 (3:34,3) est interpolé.
+3. E01 (3:04) : aucun mot transcrit entre 3:03 et 3:17. L'écho est-il chanté là ?
+4. Annotation « r roulé » de L10 et L21 : non affichée (texte nettoyé).
+5. Graphies arméniennes : relecture par une personne arménophone (§11).
 
 **Points de finition (proposés, non faits).**
-- Lip-sync nerveux : environ 5 bascules par seconde pendant le couplet 1, et 29 tenues sur 74 durent moins de 3 images. Proposition : garder la bouche ouverte au moins 0,1 s.
-- Clignement toutes les 3,7 s, très régulier. Proposition : un rythme irrégulier mais déterministe (fonction de l'index du clignement, sans `Math.random`).
-- Page « Encore ! » : espace trop grand après L29 et après L33. La hauteur de « À table en Arménie… » est estimée sur deux lignes, alors qu'elle tient sur une.
-- Graphies arméniennes : relecture par une personne arménophone toujours à faire (voir « inscriptions en arménien »).
+- Lip-sync nerveux : environ 5 bascules par seconde pendant le couplet 1 ; 29 tenues sur 74 durent moins de 3 images. Proposition : tenir la bouche ouverte au moins 0,1 s.
+- Clignement toutes les 3,7 s, très régulier. Proposition : rythme irrégulier mais déterministe (fonction de l'index du clignement, sans `Math.random`).
+- Page « Encore ! » : espace un peu grand après L29 (la hauteur de « À table en Arménie… » est estimée sur deux lignes, alors qu'elle tient sur une). Cosmétique.
 
-**Outils (hors dépôt, non persistés).** Chromium 153 : paquet npm `@sparticuz/chromium`. Décompresser `bin/al2023.tar.br` dans `/tmp/al2023` et exporter `LD_LIBRARY_PATH=/tmp/al2023/lib`. ffmpeg : PyPI `imageio-ffmpeg` (binaire inclus). Captures : `npm i puppeteer-core` dans `clips/dolma-forever/`, puis `CLIP_DIR=$PWD CHROME_PATH=<chrome> node tools/snap.mjs <t…> --out tmp/snaps`. Cela remplace `/tmp/chr/run_snap.sh`, qui n'existe plus.
-
-**Rendu.** Commande sur ta machine (terminal Linux ou cellule `!` de Colab) : `curl -fsSL https://raw.githubusercontent.com/Thierryaco/clip-arm/arena/6075c539-clip-arm/clips/dolma-forever/tools/render_all.sh | bash -s -- --preview` (sans `--preview` : master 1080p). Le script accepte les variables `BRANCH` et `REPO_URL`. L'URL brute n'a pas pu être testée depuis le sandbox : le script a été testé en local.
+**Commandes.**
+- Temps : `python3 tools/sync.py --reuse-analysis` (sans librosa) ; `python3 tools/sync.py` régénère aussi l'analyse audio (numpy et librosa requis).
+- Corrections dans `timings/overrides.json` : début d'une ligne `{"L14": {"start": 100.2}}` ; un temps par mot `{"L25": {"words": [...]}}` ; passage répété `"repeats": {"L10": {"start": 81.7}}` (crée `L10b`, karaoké seulement).
+- Captures : `npm i puppeteer-core` dans `clips/dolma-forever/`, puis `CLIP_DIR=$PWD CHROME_PATH=<chrome> node tools/snap.mjs <t…> --out tmp/snaps`.
+- Sandbox (hors dépôt, non persistés) : Chromium 153 via npm `@sparticuz/chromium` (décompresser `bin/al2023.tar.br` dans `/tmp/al2023`, `LD_LIBRARY_PATH=/tmp/al2023/lib`) ; ffmpeg 7.0.2 via PyPI `imageio-ffmpeg`.
+- Rendu sur la machine de l'utilisateur : `curl -fsSL https://raw.githubusercontent.com/Thierryaco/clip-arm/arena/6075c539-clip-arm/clips/dolma-forever/tools/render_all.sh | bash -s -- --preview` (sans `--preview` : master 1080p). L'URL brute n'a pas pu être testée depuis le sandbox : le script a été testé en local.
