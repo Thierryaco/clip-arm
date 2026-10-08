@@ -6,7 +6,7 @@ Adaptation de la méthode de clip généré par une équipe d'agents à la chans
 
 ## Contenu
 
-- `METHODE_ADAPTEE.md` : la méthode adaptée, les choix à faire, le pipeline, le storyboard de départ.
+- `METHODE_ADAPTEE.md` : la méthode adaptée au concept « livre de recettes animé », le pipeline et le storyboard de départ.
 - `lyrics/paroles.json` : les paroles officielles, découpées par section, avec les notes de prononciation.
 - `audio/song.mp3` : **à ajouter** (voir ci-dessous).
 - `STORYBOARD.md` : **à faire** après analyse audio.
@@ -14,7 +14,7 @@ Adaptation de la méthode de clip généré par une équipe d'agents à la chans
 ## Ce qu'il manque pour continuer
 
 1. Le MP3 de la chanson, déposé dans `audio/song.mp3`.
-2. Ton choix de concept (A, B ou C dans `METHODE_ADAPTEE.md` §5) et la place de la chanteuse (virtuelle ou absente).
+2. Rien d'autre pour l'instant : concept (livre de recettes), chanteuse virtuelle et format 16:9 sont choisis. Reste à fournir une photo de la cuisinière si tu veux qu'elle ressemble à quelqu'un.
 
 ## Taille
 
