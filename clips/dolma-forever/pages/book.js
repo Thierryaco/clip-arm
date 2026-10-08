@@ -40,6 +40,7 @@
   const coverIll = make('img', 'cover-ill', pageCover); coverIll.src = '../assets/plats/cover_tonir.jpg';
   make('div', 'fold', pageCover);
   const coverTitle = make('div', 'cover-title', pageCover);
+  make('div', 'arm-cover', pageCover, 'Հայաստան · Խոհարան');
   make('div', 'kicker', coverTitle, 'Livre de cuisine');
   make('div', 'big', coverTitle, 'Dolma Forever');
   make('div', 'sub', coverTitle, 'recettes de famille, à partager');
@@ -51,6 +52,7 @@
   const pageDolma = make('section', 'page hidden', stage);
   make('div', 'fold', pageDolma);
   make('div', 'hdr', pageDolma, 'Dolma');
+  make('div', 'arm-sub', pageDolma, 'Տոլմա');
   make('div', 'hdr-num', pageDolma, 'p. 2');
   const dolmaIll = make('img', 'dolma-ill', pageDolma); dolmaIll.src = '../assets/plats/dolma.jpg';
   make('div', 'ing-title', pageDolma, 'Ce qu’il faut :');
@@ -76,13 +78,13 @@
   // Pages de recettes : une par section. img : illustration (null = pas d'illustration),
   // cols : 1 ou 2 colonnes pour la liste, cook : cuisinière présente ou non.
   const RECIPE_PAGES = {
-    verse_2_lavash: { title: 'Lavash', num: 'p. 3', img: '../assets/plats/lavash.jpg', label: 'Étapes :' },
-    chorus_1: { title: 'Menu', num: 'p. 4', img: '../assets/plats/menu.jpg', label: 'Au menu :' },
-    verse_3: { title: 'Kefta', num: 'p. 5', img: '../assets/plats/kefta.jpg', label: 'Pour la sauce :' },
-    bridge: { title: 'Souvenirs', num: 'p. 6', img: '../assets/plats/souvenirs.jpg', pos: '30% 85%', label: 'Au séchoir :' },
-    chorus_2: { title: 'Fête', num: 'p. 7', img: '../assets/plats/fete.jpg', label: 'À table :' },
-    outro: { title: 'Fin de la recette', num: 'p. 8', img: null, label: 'Dernière bouchée :' },
-    outro_reprise: { title: 'Encore !', num: 'p. 9', img: null, cols: 2, cook: false },
+    verse_2_lavash: { title: 'Lavash', arm: 'Լավաշ', num: 'p. 3', img: '../assets/plats/lavash.jpg', label: 'Étapes :' },
+    chorus_1: { title: 'Menu', arm: 'Ճաշացանկ', num: 'p. 4', img: '../assets/plats/menu.jpg', label: 'Au menu :' },
+    verse_3: { title: 'Kefta', arm: 'Քյուֆթա', num: 'p. 5', img: '../assets/plats/kefta.jpg', label: 'Pour la sauce :' },
+    bridge: { title: 'Souvenirs', arm: 'Հիշողություններ', num: 'p. 6', img: '../assets/plats/souvenirs.jpg', pos: '30% 85%', label: 'Au séchoir :' },
+    chorus_2: { title: 'Fête', arm: 'Խնջույք', num: 'p. 7', img: '../assets/plats/fete.jpg', label: 'À table :' },
+    outro: { title: 'Fin de la recette', arm: 'Բարի ախորժակ', num: 'p. 8', img: null, label: 'Dernière bouchée :' },
+    outro_reprise: { title: 'Encore !', arm: 'Կրկին', num: 'p. 9', img: null, cols: 2, cook: false },
   };
 
   function buildRecipePage(secId, cfg) {
@@ -90,6 +92,7 @@
     const page = make('section', 'page hidden', stage);
     make('div', 'fold', page);
     make('div', 'hdr', page, cfg.title);
+    make('div', 'arm-sub', page, cfg.arm);
     make('div', 'hdr-num', page, cfg.num);
     if (cfg.img) {
       const ill = make('img', 'recipe-ill', page); ill.src = cfg.img;

@@ -193,3 +193,10 @@ Captures de contrôle : `tmp/snaps/` (ignoré par Git, ne pas versionner). Comma
 - Captures vérifiées : t = 60 (lavash), 90 (menu), 107 (kefta), 125 (souvenirs), 140 (fête), 160 (fin), 210 (reprise).
 - À valider : titres et numéros de page (Lavash, Menu, Kefta, Souvenirs, Fête, Fin de la recette, Encore !) ; texte des cases = paroles officielles telles quelles (« beureK », « R roulé… »).
 - Reste à faire : illustration pour la page « Fin de la recette » (actuellement sans image), relecture de la reprise à l'écoute, recalage de STORYBOARD.md, rendu 1080p sur la machine de l'utilisateur.
+
+### Mise à jour : inscriptions en arménien
+
+- Police : Noto Serif Armenian (SIL OFL, @fontsource), `pages/fonts/noto-serif-armenian-armenian-{400,600}-normal.woff2`, famille CSS `NotoArm`.
+- Couverture : « Հայաստան · Խոհարան » au-dessus de « Livre de cuisine ».
+- Sous-titre arménien sous chaque titre de page : Տոլմա (Dolma), Լավաշ (lavash), Ճաշացանկ (menu), Քյուֆթա (kefta), Հիշողություններ (souvenirs), Խնջույք (fête), Բարի ախորժակ (fin), Կրկին (reprise).
+- Graphies confirmées par sources : Տոլմա, Լավաշ, Քյուֆթա, Բաստուրմա, Սուջուխ, Բյորեկ. À faire relire par une personne arménophone : Խոհարան, Ճաշացանկ, Խնջույք, Հիշողություններ, Բարի ախորժակ, Կրկին.

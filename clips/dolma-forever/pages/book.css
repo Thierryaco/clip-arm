@@ -1,6 +1,8 @@
 /* Livre de recettes : mise en page 1920x1080. Aucune transition ni animation CSS (règle du moteur). */
 @font-face { font-family: 'Caveat'; src: url('fonts/caveat-latin-600-normal.woff2') format('woff2'); font-weight: 600; }
 @font-face { font-family: 'Playfair'; src: url('fonts/playfair-display-latin-400-normal.woff2') format('woff2'); font-weight: 400; }
+@font-face { font-family: 'NotoArm'; src: url('fonts/noto-serif-armenian-armenian-400-normal.woff2') format('woff2'); font-weight: 400; }
+@font-face { font-family: 'NotoArm'; src: url('fonts/noto-serif-armenian-armenian-600-normal.woff2') format('woff2'); font-weight: 600; }
 @font-face { font-family: 'Playfair'; src: url('fonts/playfair-display-latin-600-normal.woff2') format('woff2'); font-weight: 600; }
 
 html, body { margin: 0; background: #1e140d; }
@@ -47,6 +49,8 @@ html, body { margin: 0; background: #1e140d; }
 
 /* --- page « Dolma » --- */
 .hdr { position: absolute; left: 110px; top: 70px; font: 600 58px 'Playfair'; color: #4d2014; }
+.arm-sub { position: absolute; left: 110px; top: 136px; font: 400 30px 'NotoArm'; letter-spacing: 0.08em; color: #8a5a3a; }
+.arm-cover { position: absolute; right: 90px; top: 150px; width: 760px; text-align: center; font: 400 32px 'NotoArm'; letter-spacing: 0.2em; color: #8a5a3a; }
 .hdr-num { position: absolute; right: 110px; top: 84px; font: 400 36px 'Playfair'; color: #8a5a3a; }
 .dolma-ill { position: absolute; left: 110px; top: 190px; width: 520px; height: 520px; -webkit-mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 70%, transparent 100%); mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 70%, transparent 100%); }
 .ing-title { position: absolute; left: 720px; top: 170px; font: 600 44px 'Caveat'; color: #8a5a3a; }
