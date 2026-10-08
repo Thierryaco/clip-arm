@@ -63,29 +63,51 @@ moment où elle est chantée.
 ```
 clips/dolma-forever/
 ├─ audio/song.mp3                 ← à fournir
-├─ lyrics/paroles.json            ← fait : paroles structurées par section (+ timings à caler)
-├─ METHODE_ADAPTEE.md             ← ce document
-├─ STORYBOARD.md                  ← à faire après analyse audio (une entrée par ligne chantée)
-├─ README.md · .gitignore
-└─ (à créer ensuite)  core/ pages/ tools/ docs/ assets/ out/ (ignoré)
+├─ lyrics/paroles.json            ← paroles structurées par section (source de vérité)
+├─ timings/                       ← timings.json + TIMINGS.md (générés) · overrides.json (à la main)
+├─ audio/transcript.json          ← généré par transcribe.py (sur ta machine)
+├─ core/engine-state.js           ← état à l'instant t (pur) : ligne, mot, section, beat, énergie
+├─ core/lyrics-data.js            ← généré par sync.py
+├─ core/audio-analysis.js         ← généré par sync.py
+├─ tools/  transcribe.py · sync.py · test_engine_state.js
+├─ STORYBOARD.md                  ← une entrée par id de ligne (L01…L25, E01), temps dans TIMINGS.md
+├─ METHODE_ADAPTEE.md · README.md · .gitignore
+└─ (à créer ensuite)  pages/ docs/ assets/ out/ (ignoré)
 ```
 
-### Étape 1 : décoder l'audio (sur ta machine, ~5 min)
-- Transcription mot par mot avec faster-whisper `large-v3-turbo` ; passer les mots de
-  `transcription_initial_prompt_words` dans l'`initial_prompt` pour les orthographier correctement.
-- Alignement des 25 lignes chantées (`paroles.json`) sur les mots horodatés, par index proportionnel.
-- librosa : tempo (annoncé 120–135 BPM, à mesurer), beats, énergie, bande voix 250–3500 Hz pour le lip-sync, 16 bandes
-  de spectre à 30 i/s.
-- Sortie : `audio/analysis.js`, `core/lyrics-data.js`, et les vrais timings des sections (qui remplacent les
-  `estimated_start_s`).
+### Étape 1 : synchroniser (la source de vérité)
+Une seule chaîne : `paroles.json` → audio → `timings/timings.json` → tout le reste.
+
+```bash
+python3 tools/transcribe.py      # sur ta machine : audio/transcript.json (faster-whisper, mots horodatés)
+python3 tools/sync.py            # analyse audio + alignement des 25 lignes + E01 + contrôle
+node tools/test_engine_state.js  # teste l'état du clip à différents instants
+```
+
+- `transcribe.py` : transcription mot par mot, avec les noms propres en `initial_prompt`.
+- `sync.py` produit :
+  - `audio/analysis.json` et `core/audio-analysis.js` : rms, voix, basses, onsets, 16 bandes, beats, tempo, à 30 i/s ;
+  - `timings/timings.json` et `timings/TIMINGS.md` : début et fin de chaque ligne et section, avec la source de chaque
+    temps (`audio`, ou `manuel` si tu l'as corrigé) ;
+  - `core/lyrics-data.js` : lignes et mots horodatés pour le moteur.
+- **Alignement** : chaque ligne est recherchée dans la transcription, dans l'ordre (les refrains répétés ne peuvent pas
+  « sauter »). Un mot omis est interpolé à l'intérieur de sa ligne. Le script avertit si une section s'écarte de plus de
+  8 s des estimations de départ, ou si moins de 60 % des mots sont reconnus.
+- **Corrections à l'oreille** : `timings/overrides.json`, par exemple `{"L05": {"start": 46.2}}`. Relance ensuite
+  `sync.py` : la correction est prioritaire, et le contrôle refuse les chevauchements.
+- `python3 tools/sync.py --check` vérifie seulement `timings.json` (ordre, durées, dépassements).
+
+Le test de synchronisation a été fait sur une chanson de test de 239 s (clics à 125 BPM, voix simulées, transcription
+avec 8 % de mots omis, 8 % mal orthographiés et deux hallucinations) : toutes les lignes sont retrouvées à moins de
+50 ms, et l'écho est bien conservé. Il reste à le faire sur la vraie chanson.
 
 ### Étape 2 : moteur
 Reprendre `engine.js`, `main.js`, `base.css`, `index.html`, `snap.js`, `render.js`. Adapter la mise en page (taille de
 page, marges, grain papier) et la palette.
 
 ### Étape 3 : storyboard
-Une entrée par ligne chantée : ce qui est sur la page à ce moment, l'ingrédient ou la photo mis en avant, le style des
-sous-titres. Première version en §6.
+`STORYBOARD.md` : une entrée par identifiant de ligne (L01 … L25, E01). Les temps ne sont pas recopiés : ils viennent
+de `timings/TIMINGS.md`. Modifier le storyboard ne demande donc aucun recalcul.
 
 ### Étape 4 : vague 1, 4 agents « modules »
 | agent | livrable |
@@ -119,7 +141,8 @@ Puis une version web légère (crf 20, maxrate 14M) pour partager le clip.
 
 ---
 
-## 5. Storyboard de départ (concept B, à caler sur l'audio)
+## 5. Storyboard de départ (concept B)
+La version détaillée, ligne par ligne, est dans `STORYBOARD.md`. Le tableau ci-dessous en donne la structure :
 
 Les temps sont des estimations à partir de la structure Suno (3:59 au total). Ils seront remplacés par les vrais
 timings après l'analyse.
