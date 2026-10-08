@@ -200,3 +200,8 @@ Captures de contrôle : `tmp/snaps/` (ignoré par Git, ne pas versionner). Comma
 - Couverture : « Հայաստան · Խոհարան » au-dessus de « Livre de cuisine ».
 - Sous-titre arménien sous chaque titre de page : Տոլմա (Dolma), Լավաշ (lavash), Ճաշացանկ (menu), Քյուֆթա (kefta), Հիշողություններ (souvenirs), Խնջույք (fête), Բարի ախորժակ (fin), Կրկին (reprise).
 - Graphies confirmées par sources : Տոլմա, Լավաշ, Քյուֆթա, Բաստուրմա, Սուջուխ, Բյորեկ. À faire relire par une personne arménophone : Խոհարան, Ճաշացանկ, Խնջույք, Հիշողություններ, Բարի ախորժակ, Կրկին.
+
+### Mise à jour : page de fin
+
+- Illustration `assets/plats/fin.jpg` ajoutée (table du soir presque vidée, bougie, lavash, citron, thé). Vérifiée à l'œil ; page « Fin de la recette » (p. 8) vérifiée à t = 160 s.
+- Il ne reste plus de page sans illustration. Restent : relecture de la reprise à l'écoute, recalage de `STORYBOARD.md`, rendu 1080p sur la machine de l'utilisateur, et relecture des graphies arméniennes listées plus haut.

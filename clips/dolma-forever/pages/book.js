@@ -83,7 +83,7 @@
     verse_3: { title: 'Kefta', arm: 'Քյուֆթա', num: 'p. 5', img: '../assets/plats/kefta.jpg', label: 'Pour la sauce :' },
     bridge: { title: 'Souvenirs', arm: 'Հիշողություններ', num: 'p. 6', img: '../assets/plats/souvenirs.jpg', pos: '30% 85%', label: 'Au séchoir :' },
     chorus_2: { title: 'Fête', arm: 'Խնջույք', num: 'p. 7', img: '../assets/plats/fete.jpg', label: 'À table :' },
-    outro: { title: 'Fin de la recette', arm: 'Բարի ախորժակ', num: 'p. 8', img: null, label: 'Dernière bouchée :' },
+    outro: { title: 'Fin de la recette', arm: 'Բարի ախորժակ', num: 'p. 8', img: '../assets/plats/fin.jpg', label: 'Dernière bouchée :' },
     outro_reprise: { title: 'Encore !', arm: 'Կրկին', num: 'p. 9', img: null, cols: 2, cook: false },
   };
 
