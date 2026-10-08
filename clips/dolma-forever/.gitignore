@@ -4,9 +4,9 @@ out/
 *.mov
 *.webm
 
-# Intermédiaires d'analyse et de test
-clips/*/audio/*.wav
-clips/*/audio/analysis.json
-clips/*/tmp/
-node_modules/
+# Intermédiaires d'analyse et de test (régénérés par tools/sync.py)
+audio/*.wav
+audio/analysis.json
+tmp/
 __pycache__/
+node_modules/
