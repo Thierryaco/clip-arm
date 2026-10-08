@@ -13,6 +13,22 @@ le script et le storyboard reste valide.
 
 ---
 
+## État de réalisation (temps de `timings/timings.json`, pages de `pages/book.js`)
+
+| Section | Temps (s) | Page | Illustration |
+|---|---|---|---|
+| intro | 4,76 – 40,40 | Couverture (tampon, karaoké L01) | `assets/plats/cover_tonir.jpg` |
+| verse_1 | 40,40 – 54,86 | « Dolma » (p. 2) | `assets/plats/dolma.jpg` |
+| verse_2_lavash | 54,86 – 70,30 | « Lavash » (p. 3) | `assets/plats/lavash.jpg` |
+| chorus_1 | 70,30 – 100,20 | « Menu » (p. 4) | `assets/plats/menu.jpg` |
+| verse_3 | 100,20 – 117,16 | « Kefta » (p. 5) | `assets/plats/kefta.jpg` |
+| bridge | 117,16 – 131,80 | « Souvenirs » (p. 6) | `assets/plats/souvenirs.jpg` |
+| chorus_2 | 131,80 – 155,12 | « Fête » (p. 7) | `assets/plats/fete.jpg` |
+| outro | 155,12 – 196,76 | « Fin de la recette » (p. 8) | `assets/plats/fin.jpg` |
+| outro_reprise | 196,76 – 239,92 | « Encore ! » (p. 9), deux colonnes, sans cuisinière | aucune |
+
+Écart avec le plan initial : la reprise finale n'est pas un « menu » qui se superpose, mais une page « Encore ! » où les dix lignes se cochent en deux colonnes. Les titres de pages sont provisoires (à valider).
+
 ## Couverture et couplet 1 : page « Dolma »
 
 | id | texte | à l'écran | rythme |
@@ -76,7 +92,7 @@ le script et le storyboard reste valide.
 
 ---
 
-## Reprise finale (audio uniquement) : livre qui se referme
+## Reprise finale (audio uniquement) : page « Encore ! » (construite, voir le tableau ci-dessus)
 
 Absente du texte Suno, présente dans la chanson. Structure : L26 à L29 jouées deux fois, puis deux « R roulé » à la fin.
 Les mots viennent du refrain et des consignes de l'outro, à valider à l'écoute.
