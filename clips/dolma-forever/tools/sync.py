@@ -250,7 +250,13 @@ def align_words(lines, asr_words, duration):
         out_lines.append({"id": line["id"], "section": line["section"], "text": line["clean"],
                           "echo": bool(line.get("echo")), "words": ws})
 
-    # fin de ligne : jusqu'au début de la ligne suivante (pas de chevauchement)
+    finish_lines(out_lines, duration)
+
+    return out_lines, ratio
+
+
+def finish_lines(out_lines, duration):
+    """Fin de ligne = fin du dernier mot, plafonnée au début de la ligne suivante. Recalculé après corrections."""
     for i, line in enumerate(out_lines):
         line["start"] = line["words"][0]["s"]
         last = line["words"][-1]
@@ -258,14 +264,16 @@ def align_words(lines, asr_words, duration):
         if i + 1 < len(out_lines):
             line_end = min(line_end, out_lines[i + 1]["words"][0]["s"])
         line["end"] = round(min(line_end, duration), 3)
-        for word in line["words"]:
-            word["e"] = min(word["e"], line["end"])
+        # fin de chaque mot = début du suivant (ou fin de ligne), jamais avant son début
+        ws = line["words"]
+        for j, word in enumerate(ws):
+            nxt = ws[j + 1]["s"] if j + 1 < len(ws) else line["end"]
+            word["e"] = round(max(word["s"] + 0.05, min(nxt, line["end"])), 3)
 
-    return out_lines, ratio
 
-
-def apply_overrides(lines, overrides, lyrics):
-    """Corrections manuelles : {"L05": {"start": 46.2}} décale la ligne (sa durée est conservée)."""
+def apply_overrides(lines, overrides, duration):
+    """Corrections manuelles : {"L05": {"start": 46.2}} décale les mots de la ligne. Les fins de ligne
+    sont recalculées ensuite, pour éviter les chevauchements."""
     changed = []
     by_id = {l["id"]: l for l in lines}
     for lid, ov in overrides.items():
@@ -276,14 +284,13 @@ def apply_overrides(lines, overrides, lyrics):
             continue
         line = by_id[lid]
         if "start" in ov:
-            delta = float(ov["start"]) - line["start"]
-            dur = line["end"] - line["start"]
-            line["start"] = round(float(ov["start"]), 3)
-            line["end"] = round(line["start"] + dur, 3)
+            delta = float(ov["start"]) - line["words"][0]["s"]
             for w in line["words"]:
                 w["s"] = round(w["s"] + delta, 3)
                 w["e"] = round(w["e"] + delta, 3)
             changed.append(lid)
+    if changed:
+        finish_lines(lines, duration)
     return changed
 
 
@@ -428,7 +435,7 @@ def main() -> int:
     if ratio < 0.6:
         warnings.append(f"Seulement {ratio:.0%} des mots reconnus : vérifie les lignes à l'écoute.")
 
-    changed = apply_overrides(out_lines, overrides, lyrics)
+    changed = apply_overrides(out_lines, overrides, duration)
     for l in out_lines:
         if l["id"] in changed:
             l["source"] = "manuel"

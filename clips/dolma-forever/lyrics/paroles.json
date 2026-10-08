@@ -18,14 +18,13 @@
       "joyful 120-135 bpm",
       "like traditional Armenian wedding song meets modern world music"
     ],
-    "note": "Paroles copiées telles quelles depuis la page Suno. Durée et timings de sections = estimations, à caler sur l'audio réel (MP3 non encore fourni)."
+    "note": "Paroles copiées telles quelles depuis la page Suno. Temps mesurés par tools/sync.py. La version chantée (audio) contient des passages absents de ces paroles (« Aïe aïe aïe », « Pour un café de repas », « Méroulé ») : voir timings/overrides.json."
   },
   "sections": [
     {
       "id": "intro",
       "label": "Intro",
       "direction": "soft duduk intro, percussions qui montent doucement",
-      "estimated_start_s": 0,
       "lines": [
         "Hayastan, l’odeur des épices appelle…"
       ]
@@ -33,7 +32,6 @@
     {
       "id": "verse_1",
       "label": "Verse 1",
-      "estimated_start_s": 14,
       "lines": [
         "Feuilles de vigne tendres, roulées avec soin",
         "Dolma qui brille dans l’assiette, pur bonheur",
@@ -44,7 +42,6 @@
     {
       "id": "verse_2_lavash",
       "label": "Verse 2 – Lavash",
-      "estimated_start_s": 45,
       "lines": [
         "Lavash fin comme une caresse, cuit au tonir chaud",
         "Étendu, claqué contre le mur, doré en un éclair",
@@ -55,7 +52,6 @@
     {
       "id": "chorus_1",
       "label": "Chorus",
-      "estimated_start_s": 76,
       "lines": [
         "Oh dolma, keufté, beureK (r roulé !)",
         "Bouboules keufté qui fondent en bouche",
@@ -66,7 +62,6 @@
     {
       "id": "verse_3",
       "label": "Verse 3",
-      "estimated_start_s": 104,
       "lines": [
         "Kefta en boules rondes, dorées à souhait",
         "Dans la sauce tomate, un festin secret",
@@ -78,7 +73,6 @@
       "id": "bridge",
       "label": "Bridge",
       "direction": "duduk solo émouvant, un peu plus lent",
-      "estimated_start_s": 134,
       "lines": [
         "Soudjouk séché au vent des hauts plateaux",
         "Pasteurma rouge, épices qui marquent l’âme",
@@ -88,7 +82,6 @@
     {
       "id": "chorus_2",
       "label": "Chorus – plus fort, chœurs joyeux",
-      "estimated_start_s": 166,
       "lines": [
         "Oh dolma, keufté, beureK (r roulé !)",
         "Bouboules keufté qui fondent en bouche",
@@ -100,7 +93,6 @@
       "id": "outro",
       "label": "Outro",
       "direction": "percus + claps festifs, fade out joyeux",
-      "estimated_start_s": 200,
       "lines": [
         "Hay hay hay, aïdé à table ! Dolma forever…"
       ],
@@ -115,7 +107,18 @@
     "Hay hay hay, aïdé à table": "« aïdé » est tel quel dans les paroles officielles ; à confirmer avec l'auteur (orthographe voulue ?)."
   },
   "transcription_initial_prompt_words": [
-    "Hayastan", "dolma", "keufté", "beureK", "soudjouk", "pasteurma", "lavash", "tonir",
-    "kefta", "duduk", "UNESCO", "Arménie", "aïdé"
+    "Hayastan",
+    "dolma",
+    "keufté",
+    "beureK",
+    "soudjouk",
+    "pasteurma",
+    "lavash",
+    "tonir",
+    "kefta",
+    "duduk",
+    "UNESCO",
+    "Arménie",
+    "aïdé"
   ]
 }

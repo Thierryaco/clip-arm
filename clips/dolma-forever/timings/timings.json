@@ -1,0 +1,1263 @@
+{
+ "song": "(soft duduk intro, percussions qui montent doucement)",
+ "duration": 239.92,
+ "source": "audio",
+ "tempo": 105.9,
+ "sections": [
+  {
+   "id": "intro",
+   "label": "Intro",
+   "start": 4.76,
+   "end": 40.4,
+   "source": "audio"
+  },
+  {
+   "id": "verse_1",
+   "label": "Verse 1",
+   "start": 40.4,
+   "end": 54.86,
+   "source": "audio"
+  },
+  {
+   "id": "verse_2_lavash",
+   "label": "Verse 2 – Lavash",
+   "start": 54.86,
+   "end": 70.3,
+   "source": "audio"
+  },
+  {
+   "id": "chorus_1",
+   "label": "Chorus",
+   "start": 70.3,
+   "end": 100.2,
+   "source": "audio"
+  },
+  {
+   "id": "verse_3",
+   "label": "Verse 3",
+   "start": 100.2,
+   "end": 117.16,
+   "source": "audio"
+  },
+  {
+   "id": "bridge",
+   "label": "Bridge",
+   "start": 117.16,
+   "end": 131.8,
+   "source": "audio"
+  },
+  {
+   "id": "chorus_2",
+   "label": "Chorus – plus fort, chœurs joyeux",
+   "start": 131.8,
+   "end": 155.12,
+   "source": "audio"
+  },
+  {
+   "id": "outro",
+   "label": "Outro",
+   "start": 155.12,
+   "end": 239.92,
+   "source": "audio"
+  }
+ ],
+ "lines": [
+  {
+   "id": "L01",
+   "section": "intro",
+   "start": 4.76,
+   "end": 10.16,
+   "echo": false,
+   "text": "Hayastan, l’odeur des épices appelle…",
+   "source": "audio",
+   "words": [
+    {
+     "w": "Hayastan,",
+     "s": 4.76,
+     "e": 6.48
+    },
+    {
+     "w": "l’odeur",
+     "s": 6.48,
+     "e": 8.2
+    },
+    {
+     "w": "des",
+     "s": 8.2,
+     "e": 8.38
+    },
+    {
+     "w": "épices",
+     "s": 8.38,
+     "e": 8.66
+    },
+    {
+     "w": "appelle…",
+     "s": 8.66,
+     "e": 10.16
+    }
+   ]
+  },
+  {
+   "id": "L02",
+   "section": "verse_1",
+   "start": 40.4,
+   "end": 43.2,
+   "echo": false,
+   "text": "Feuilles de vigne tendres, roulées avec soin",
+   "source": "audio",
+   "words": [
+    {
+     "w": "Feuilles",
+     "s": 40.4,
+     "e": 40.68
+    },
+    {
+     "w": "de",
+     "s": 40.68,
+     "e": 40.88
+    },
+    {
+     "w": "vigne",
+     "s": 40.88,
+     "e": 41.353
+    },
+    {
+     "w": "tendres,",
+     "s": 41.353,
+     "e": 41.827
+    },
+    {
+     "w": "roulées",
+     "s": 41.827,
+     "e": 42.3
+    },
+    {
+     "w": "avec",
+     "s": 42.3,
+     "e": 42.64
+    },
+    {
+     "w": "soin",
+     "s": 42.64,
+     "e": 43.2
+    }
+   ]
+  },
+  {
+   "id": "L03",
+   "section": "verse_1",
+   "start": 43.2,
+   "end": 47.08,
+   "echo": false,
+   "text": "Dolma qui brille dans l’assiette, pur bonheur",
+   "source": "audio",
+   "words": [
+    {
+     "w": "Dolma",
+     "s": 43.2,
+     "e": 44.34
+    },
+    {
+     "w": "qui",
+     "s": 44.34,
+     "e": 44.6
+    },
+    {
+     "w": "brille",
+     "s": 44.6,
+     "e": 44.82
+    },
+    {
+     "w": "dans",
+     "s": 44.82,
+     "e": 45.33
+    },
+    {
+     "w": "l’assiette,",
+     "s": 45.33,
+     "e": 45.84
+    },
+    {
+     "w": "pur",
+     "s": 45.84,
+     "e": 46.1
+    },
+    {
+     "w": "bonheur",
+     "s": 46.1,
+     "e": 47.08
+    }
+   ]
+  },
+  {
+   "id": "L04",
+   "section": "verse_1",
+   "start": 47.08,
+   "end": 50.46,
+   "echo": false,
+   "text": "Riz parfumé, viande hachée, herbes qui dansent",
+   "source": "audio",
+   "words": [
+    {
+     "w": "Riz",
+     "s": 47.08,
+     "e": 47.78
+    },
+    {
+     "w": "parfumé,",
+     "s": 47.78,
+     "e": 48.7
+    },
+    {
+     "w": "viande",
+     "s": 48.7,
+     "e": 48.96
+    },
+    {
+     "w": "hachée,",
+     "s": 48.96,
+     "e": 49.34
+    },
+    {
+     "w": "herbes",
+     "s": 49.34,
+     "e": 49.72
+    },
+    {
+     "w": "qui",
+     "s": 49.72,
+     "e": 50.0
+    },
+    {
+     "w": "dansent",
+     "s": 50.0,
+     "e": 50.46
+    }
+   ]
+  },
+  {
+   "id": "L05",
+   "section": "verse_1",
+   "start": 50.46,
+   "end": 54.82,
+   "echo": false,
+   "text": "Un petit paquet vert, saveur d’enfance immense",
+   "source": "audio",
+   "words": [
+    {
+     "w": "Un",
+     "s": 50.46,
+     "e": 50.88
+    },
+    {
+     "w": "petit",
+     "s": 50.88,
+     "e": 51.2
+    },
+    {
+     "w": "paquet",
+     "s": 51.2,
+     "e": 51.56
+    },
+    {
+     "w": "vert,",
+     "s": 51.56,
+     "e": 52.08
+    },
+    {
+     "w": "saveur",
+     "s": 52.08,
+     "e": 52.7
+    },
+    {
+     "w": "d’enfance",
+     "s": 52.7,
+     "e": 53.32
+    },
+    {
+     "w": "immense",
+     "s": 53.32,
+     "e": 54.82
+    }
+   ]
+  },
+  {
+   "id": "L06",
+   "section": "verse_2_lavash",
+   "start": 54.86,
+   "end": 57.94,
+   "echo": false,
+   "text": "Lavash fin comme une caresse, cuit au tonir chaud",
+   "source": "audio",
+   "words": [
+    {
+     "w": "Lavash",
+     "s": 54.86,
+     "e": 55.14
+    },
+    {
+     "w": "fin",
+     "s": 55.14,
+     "e": 55.32
+    },
+    {
+     "w": "comme",
+     "s": 55.32,
+     "e": 55.58
+    },
+    {
+     "w": "une",
+     "s": 55.58,
+     "e": 55.8
+    },
+    {
+     "w": "caresse,",
+     "s": 55.8,
+     "e": 56.5
+    },
+    {
+     "w": "cuit",
+     "s": 56.5,
+     "e": 56.64
+    },
+    {
+     "w": "au",
+     "s": 56.64,
+     "e": 56.8
+    },
+    {
+     "w": "tonir",
+     "s": 56.8,
+     "e": 57.14
+    },
+    {
+     "w": "chaud",
+     "s": 57.14,
+     "e": 57.94
+    }
+   ]
+  },
+  {
+   "id": "L07",
+   "section": "verse_2_lavash",
+   "start": 57.94,
+   "end": 61.84,
+   "echo": false,
+   "text": "Étendu, claqué contre le mur, doré en un éclair",
+   "source": "audio",
+   "words": [
+    {
+     "w": "Étendu,",
+     "s": 57.94,
+     "e": 58.22
+    },
+    {
+     "w": "claqué",
+     "s": 58.22,
+     "e": 58.66
+    },
+    {
+     "w": "contre",
+     "s": 58.66,
+     "e": 58.94
+    },
+    {
+     "w": "le",
+     "s": 58.94,
+     "e": 59.22
+    },
+    {
+     "w": "mur,",
+     "s": 59.22,
+     "e": 59.54
+    },
+    {
+     "w": "doré",
+     "s": 59.54,
+     "e": 60.0
+    },
+    {
+     "w": "en",
+     "s": 60.0,
+     "e": 60.24
+    },
+    {
+     "w": "un",
+     "s": 60.24,
+     "e": 60.44
+    },
+    {
+     "w": "éclair",
+     "s": 60.44,
+     "e": 61.84
+    }
+   ]
+  },
+  {
+   "id": "L08",
+   "section": "verse_2_lavash",
+   "start": 61.84,
+   "end": 64.48,
+   "echo": false,
+   "text": "Pain de tous les jours, UNESCO dans le cœur",
+   "source": "audio",
+   "words": [
+    {
+     "w": "Pain",
+     "s": 61.84,
+     "e": 62.12
+    },
+    {
+     "w": "de",
+     "s": 62.12,
+     "e": 62.26
+    },
+    {
+     "w": "tous",
+     "s": 62.26,
+     "e": 62.48
+    },
+    {
+     "w": "les",
+     "s": 62.48,
+     "e": 62.72
+    },
+    {
+     "w": "jours,",
+     "s": 62.72,
+     "e": 63.31
+    },
+    {
+     "w": "UNESCO",
+     "s": 63.31,
+     "e": 63.9
+    },
+    {
+     "w": "dans",
+     "s": 63.9,
+     "e": 64.02
+    },
+    {
+     "w": "le",
+     "s": 64.02,
+     "e": 64.22
+    },
+    {
+     "w": "cœur",
+     "s": 64.22,
+     "e": 64.48
+    }
+   ]
+  },
+  {
+   "id": "L09",
+   "section": "verse_2_lavash",
+   "start": 64.48,
+   "end": 69.18,
+   "echo": false,
+   "text": "Avec lui tout s’enroule, tout se partage, tout est meilleur",
+   "source": "audio",
+   "words": [
+    {
+     "w": "Avec",
+     "s": 64.48,
+     "e": 64.9
+    },
+    {
+     "w": "lui",
+     "s": 64.9,
+     "e": 65.14
+    },
+    {
+     "w": "tout",
+     "s": 65.14,
+     "e": 65.65
+    },
+    {
+     "w": "s’enroule,",
+     "s": 65.65,
+     "e": 66.16
+    },
+    {
+     "w": "tout",
+     "s": 66.16,
+     "e": 66.28
+    },
+    {
+     "w": "se",
+     "s": 66.28,
+     "e": 66.56
+    },
+    {
+     "w": "partage,",
+     "s": 66.56,
+     "e": 67.22
+    },
+    {
+     "w": "tout",
+     "s": 67.22,
+     "e": 67.4
+    },
+    {
+     "w": "est",
+     "s": 67.4,
+     "e": 67.68
+    },
+    {
+     "w": "meilleur",
+     "s": 67.68,
+     "e": 69.18
+    }
+   ]
+  },
+  {
+   "id": "L10",
+   "section": "chorus_1",
+   "start": 70.3,
+   "end": 72.78,
+   "echo": false,
+   "text": "Oh dolma, keufté, beureK",
+   "source": "audio",
+   "words": [
+    {
+     "w": "Oh",
+     "s": 70.3,
+     "e": 70.82
+    },
+    {
+     "w": "dolma,",
+     "s": 70.82,
+     "e": 71.1
+    },
+    {
+     "w": "keufté,",
+     "s": 71.1,
+     "e": 71.38
+    },
+    {
+     "w": "beureK",
+     "s": 71.38,
+     "e": 72.78
+    }
+   ]
+  },
+  {
+   "id": "L11",
+   "section": "chorus_1",
+   "start": 73.96,
+   "end": 75.94,
+   "echo": false,
+   "text": "Bouboules keufté qui fondent en bouche",
+   "source": "audio",
+   "words": [
+    {
+     "w": "Bouboules",
+     "s": 73.96,
+     "e": 74.24
+    },
+    {
+     "w": "keufté",
+     "s": 74.24,
+     "e": 74.52
+    },
+    {
+     "w": "qui",
+     "s": 74.52,
+     "e": 74.8
+    },
+    {
+     "w": "fondent",
+     "s": 74.8,
+     "e": 75.44
+    },
+    {
+     "w": "en",
+     "s": 75.44,
+     "e": 75.56
+    },
+    {
+     "w": "bouche",
+     "s": 75.56,
+     "e": 75.94
+    }
+   ]
+  },
+  {
+   "id": "L12",
+   "section": "chorus_1",
+   "start": 75.94,
+   "end": 78.24,
+   "echo": false,
+   "text": "Soudjouk qui craque, pasteurma qui pique",
+   "source": "audio",
+   "words": [
+    {
+     "w": "Soudjouk",
+     "s": 75.94,
+     "e": 76.22
+    },
+    {
+     "w": "qui",
+     "s": 76.22,
+     "e": 76.44
+    },
+    {
+     "w": "craque,",
+     "s": 76.44,
+     "e": 77.0
+    },
+    {
+     "w": "pasteurma",
+     "s": 77.0,
+     "e": 77.56
+    },
+    {
+     "w": "qui",
+     "s": 77.56,
+     "e": 77.78
+    },
+    {
+     "w": "pique",
+     "s": 77.78,
+     "e": 78.24
+    }
+   ]
+  },
+  {
+   "id": "L13",
+   "section": "chorus_1",
+   "start": 78.24,
+   "end": 82.46,
+   "echo": false,
+   "text": "À table en Arménie, on rit, on savoure, on vit !",
+   "source": "audio",
+   "words": [
+    {
+     "w": "À",
+     "s": 78.24,
+     "e": 78.62
+    },
+    {
+     "w": "table",
+     "s": 78.62,
+     "e": 78.96
+    },
+    {
+     "w": "en",
+     "s": 78.96,
+     "e": 79.16
+    },
+    {
+     "w": "Arménie,",
+     "s": 79.16,
+     "e": 79.96
+    },
+    {
+     "w": "on",
+     "s": 79.96,
+     "e": 80.06
+    },
+    {
+     "w": "rit,",
+     "s": 80.06,
+     "e": 80.32
+    },
+    {
+     "w": "on",
+     "s": 80.32,
+     "e": 80.4
+    },
+    {
+     "w": "savoure,",
+     "s": 80.4,
+     "e": 80.68
+    },
+    {
+     "w": "on",
+     "s": 80.68,
+     "e": 80.96
+    },
+    {
+     "w": "vit",
+     "s": 80.96,
+     "e": 82.46
+    }
+   ]
+  },
+  {
+   "id": "L14",
+   "section": "verse_3",
+   "start": 100.2,
+   "end": 104.22,
+   "echo": false,
+   "text": "Kefta en boules rondes, dorées à souhait",
+   "source": "manuel",
+   "words": [
+    {
+     "w": "Kefta",
+     "s": 100.2,
+     "e": 102.582
+    },
+    {
+     "w": "en",
+     "s": 102.582,
+     "e": 104.22
+    },
+    {
+     "w": "boules",
+     "s": 104.964,
+     "e": 105.014
+    },
+    {
+     "w": "rondes,",
+     "s": 107.346,
+     "e": 107.396
+    },
+    {
+     "w": "dorées",
+     "s": 109.728,
+     "e": 109.778
+    },
+    {
+     "w": "à",
+     "s": 112.11,
+     "e": 112.16
+    },
+    {
+     "w": "souhait",
+     "s": 114.492,
+     "e": 114.542
+    }
+   ]
+  },
+  {
+   "id": "L15",
+   "section": "verse_3",
+   "start": 104.22,
+   "end": 107.74,
+   "echo": false,
+   "text": "Dans la sauce tomate, un festin secret",
+   "source": "manuel",
+   "words": [
+    {
+     "w": "Dans",
+     "s": 104.22,
+     "e": 105.0
+    },
+    {
+     "w": "la",
+     "s": 105.0,
+     "e": 105.22
+    },
+    {
+     "w": "sauce",
+     "s": 105.22,
+     "e": 105.56
+    },
+    {
+     "w": "tomate,",
+     "s": 105.56,
+     "e": 106.4
+    },
+    {
+     "w": "un",
+     "s": 106.4,
+     "e": 106.62
+    },
+    {
+     "w": "festin",
+     "s": 106.62,
+     "e": 106.9
+    },
+    {
+     "w": "secret",
+     "s": 106.9,
+     "e": 107.74
+    }
+   ]
+  },
+  {
+   "id": "L16",
+   "section": "verse_3",
+   "start": 107.74,
+   "end": 111.32,
+   "echo": false,
+   "text": "BeureK croustillant, fromage qui file et coule",
+   "source": "manuel",
+   "words": [
+    {
+     "w": "BeureK",
+     "s": 107.74,
+     "e": 108.263
+    },
+    {
+     "w": "croustillant,",
+     "s": 108.263,
+     "e": 108.785
+    },
+    {
+     "w": "fromage",
+     "s": 108.785,
+     "e": 109.307
+    },
+    {
+     "w": "qui",
+     "s": 109.307,
+     "e": 109.829
+    },
+    {
+     "w": "file",
+     "s": 109.829,
+     "e": 110.352
+    },
+    {
+     "w": "et",
+     "s": 110.352,
+     "e": 110.874
+    },
+    {
+     "w": "coule",
+     "s": 110.874,
+     "e": 111.32
+    }
+   ]
+  },
+  {
+   "id": "L17",
+   "section": "verse_3",
+   "start": 111.32,
+   "end": 115.06,
+   "echo": false,
+   "text": "Chaque bouchée un voyage vers les montagnes",
+   "source": "manuel",
+   "words": [
+    {
+     "w": "Chaque",
+     "s": 111.32,
+     "e": 111.87
+    },
+    {
+     "w": "bouchée",
+     "s": 111.87,
+     "e": 112.42
+    },
+    {
+     "w": "un",
+     "s": 112.42,
+     "e": 112.47
+    },
+    {
+     "w": "voyage",
+     "s": 112.46,
+     "e": 112.96
+    },
+    {
+     "w": "vers",
+     "s": 112.96,
+     "e": 113.28
+    },
+    {
+     "w": "les",
+     "s": 113.28,
+     "e": 113.56
+    },
+    {
+     "w": "montagnes",
+     "s": 113.56,
+     "e": 115.06
+    }
+   ]
+  },
+  {
+   "id": "L18",
+   "section": "bridge",
+   "start": 117.16,
+   "end": 120.88,
+   "echo": false,
+   "text": "Soudjouk séché au vent des hauts plateaux",
+   "source": "manuel",
+   "words": [
+    {
+     "w": "Soudjouk",
+     "s": 117.16,
+     "e": 118.044
+    },
+    {
+     "w": "séché",
+     "s": 118.044,
+     "e": 118.928
+    },
+    {
+     "w": "au",
+     "s": 118.928,
+     "e": 119.812
+    },
+    {
+     "w": "vent",
+     "s": 119.812,
+     "e": 120.696
+    },
+    {
+     "w": "des",
+     "s": 120.696,
+     "e": 120.88
+    },
+    {
+     "w": "hauts",
+     "s": 121.58,
+     "e": 121.63
+    },
+    {
+     "w": "plateaux",
+     "s": 122.464,
+     "e": 122.514
+    }
+   ]
+  },
+  {
+   "id": "L19",
+   "section": "bridge",
+   "start": 120.88,
+   "end": 124.0,
+   "echo": false,
+   "text": "Pasteurma rouge, épices qui marquent l’âme",
+   "source": "manuel",
+   "words": [
+    {
+     "w": "Pasteurma",
+     "s": 120.88,
+     "e": 121.16
+    },
+    {
+     "w": "rouge,",
+     "s": 121.16,
+     "e": 121.44
+    },
+    {
+     "w": "épices",
+     "s": 121.44,
+     "e": 122.04
+    },
+    {
+     "w": "qui",
+     "s": 122.04,
+     "e": 122.22
+    },
+    {
+     "w": "marquent",
+     "s": 122.22,
+     "e": 122.5
+    },
+    {
+     "w": "l’âme",
+     "s": 122.5,
+     "e": 124.0
+    }
+   ]
+  },
+  {
+   "id": "L20",
+   "section": "bridge",
+   "start": 124.1,
+   "end": 128.38,
+   "echo": false,
+   "text": "Ces goûts d’autrefois restent gravés en nous",
+   "source": "manuel",
+   "words": [
+    {
+     "w": "Ces",
+     "s": 124.1,
+     "e": 124.38
+    },
+    {
+     "w": "goûts",
+     "s": 124.38,
+     "e": 124.89
+    },
+    {
+     "w": "d’autrefois",
+     "s": 124.89,
+     "e": 125.4
+    },
+    {
+     "w": "restent",
+     "s": 125.4,
+     "e": 126.12
+    },
+    {
+     "w": "gravés",
+     "s": 126.12,
+     "e": 126.64
+    },
+    {
+     "w": "en",
+     "s": 126.64,
+     "e": 126.88
+    },
+    {
+     "w": "nous",
+     "s": 126.88,
+     "e": 128.38
+    }
+   ]
+  },
+  {
+   "id": "L21",
+   "section": "chorus_2",
+   "start": 131.8,
+   "end": 134.54,
+   "echo": false,
+   "text": "Oh dolma, keufté, beureK",
+   "source": "audio",
+   "words": [
+    {
+     "w": "Oh",
+     "s": 131.8,
+     "e": 132.58
+    },
+    {
+     "w": "dolma,",
+     "s": 132.58,
+     "e": 132.86
+    },
+    {
+     "w": "keufté,",
+     "s": 132.86,
+     "e": 133.14
+    },
+    {
+     "w": "beureK",
+     "s": 133.14,
+     "e": 134.54
+    }
+   ]
+  },
+  {
+   "id": "L22",
+   "section": "chorus_2",
+   "start": 134.9,
+   "end": 137.68,
+   "echo": false,
+   "text": "Bouboules keufté qui fondent en bouche",
+   "source": "manuel",
+   "words": [
+    {
+     "w": "Bouboules",
+     "s": 134.9,
+     "e": 135.18
+    },
+    {
+     "w": "keufté",
+     "s": 135.18,
+     "e": 135.46
+    },
+    {
+     "w": "qui",
+     "s": 135.46,
+     "e": 135.74
+    },
+    {
+     "w": "fondent",
+     "s": 135.74,
+     "e": 136.32
+    },
+    {
+     "w": "en",
+     "s": 136.32,
+     "e": 136.5
+    },
+    {
+     "w": "bouche",
+     "s": 136.5,
+     "e": 137.68
+    }
+   ]
+  },
+  {
+   "id": "L23",
+   "section": "chorus_2",
+   "start": 137.68,
+   "end": 140.02,
+   "echo": false,
+   "text": "Soudjouk qui craque, pasteurma qui pique",
+   "source": "audio",
+   "words": [
+    {
+     "w": "Soudjouk",
+     "s": 137.68,
+     "e": 138.14
+    },
+    {
+     "w": "qui",
+     "s": 138.14,
+     "e": 138.24
+    },
+    {
+     "w": "craque,",
+     "s": 138.24,
+     "e": 138.78
+    },
+    {
+     "w": "pasteurma",
+     "s": 138.78,
+     "e": 139.38
+    },
+    {
+     "w": "qui",
+     "s": 139.38,
+     "e": 139.62
+    },
+    {
+     "w": "pique",
+     "s": 139.62,
+     "e": 140.02
+    }
+   ]
+  },
+  {
+   "id": "L24",
+   "section": "chorus_2",
+   "start": 140.02,
+   "end": 144.22,
+   "echo": false,
+   "text": "À table en Arménie, on rit, on savoure, on vit !",
+   "source": "audio",
+   "words": [
+    {
+     "w": "À",
+     "s": 140.02,
+     "e": 140.42
+    },
+    {
+     "w": "table",
+     "s": 140.42,
+     "e": 140.74
+    },
+    {
+     "w": "en",
+     "s": 140.74,
+     "e": 140.96
+    },
+    {
+     "w": "Arménie,",
+     "s": 140.96,
+     "e": 141.7
+    },
+    {
+     "w": "on",
+     "s": 141.7,
+     "e": 141.86
+    },
+    {
+     "w": "rit,",
+     "s": 141.86,
+     "e": 142.12
+    },
+    {
+     "w": "on",
+     "s": 142.12,
+     "e": 142.17
+    },
+    {
+     "w": "savoure,",
+     "s": 142.16,
+     "e": 142.44
+    },
+    {
+     "w": "on",
+     "s": 142.44,
+     "e": 142.72
+    },
+    {
+     "w": "vit",
+     "s": 142.72,
+     "e": 144.22
+    }
+   ]
+  },
+  {
+   "id": "L25",
+   "section": "outro",
+   "start": 155.12,
+   "end": 158.58,
+   "echo": false,
+   "text": "Hay hay hay, aïdé à table ! Dolma forever…",
+   "source": "manuel",
+   "words": [
+    {
+     "w": "Hay",
+     "s": 155.12,
+     "e": 155.4
+    },
+    {
+     "w": "hay",
+     "s": 155.4,
+     "e": 155.68
+    },
+    {
+     "w": "hay,",
+     "s": 155.68,
+     "e": 155.96
+    },
+    {
+     "w": "aïdé",
+     "s": 155.96,
+     "e": 156.24
+    },
+    {
+     "w": "à",
+     "s": 156.24,
+     "e": 156.52
+    },
+    {
+     "w": "table",
+     "s": 156.52,
+     "e": 156.8
+    },
+    {
+     "w": "Dolma",
+     "s": 156.8,
+     "e": 157.08
+    },
+    {
+     "w": "forever…",
+     "s": 157.08,
+     "e": 158.58
+    }
+   ]
+  },
+  {
+   "id": "E01",
+   "section": "outro",
+   "start": 184.0,
+   "end": 186.24,
+   "echo": true,
+   "text": "beureK… keufté… pasteurmaaa… lavashhhh…",
+   "source": "manuel",
+   "words": [
+    {
+     "w": "beureK…",
+     "s": 184.0,
+     "e": 184.28
+    },
+    {
+     "w": "keufté…",
+     "s": 184.28,
+     "e": 184.56
+    },
+    {
+     "w": "pasteurmaaa…",
+     "s": 184.56,
+     "e": 184.84
+    },
+    {
+     "w": "lavashhhh…",
+     "s": 184.84,
+     "e": 186.24
+    }
+   ]
+  }
+ ],
+ "warnings": []
+}

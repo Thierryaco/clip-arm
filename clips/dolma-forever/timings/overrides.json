@@ -1,0 +1,36 @@
+{
+  "_commentaire": "Corrections provisoires tirées des débuts de segments de audio/transcript.json (faster-whisper). À vérifier à l'oreille. Pour changer un temps : {\"L14\": {\"start\": 100.2}}.",
+  "_L22": "134.90 : « Boubou… » dans la transcription, mais la ligne est plus proche de 134,9 s que de 135,8 s.",
+  "_L25": "155.12 : hypothèse. Les « Aïe aïe aïe » (155–181 s) remplacent très probablement « Hay hay hay » dans la version chantée, et « Réalier table Dolma forever » (181 s) correspond à « aïdé à table ! Dolma forever ».",
+  "L14": {
+    "start": 100.2
+  },
+  "L15": {
+    "start": 104.22
+  },
+  "L16": {
+    "start": 107.74
+  },
+  "L17": {
+    "start": 111.32
+  },
+  "L18": {
+    "start": 117.16
+  },
+  "L19": {
+    "start": 120.88
+  },
+  "L20": {
+    "start": 124.1
+  },
+  "L22": {
+    "start": 134.9
+  },
+  "L25": {
+    "start": 155.12
+  },
+  "_E01": "184.00 : hypothèse, juste après « Dolma forever » (181–184 s). À vérifier.",
+  "E01": {
+    "start": 184.0
+  }
+}
