@@ -215,3 +215,13 @@ Captures de contrôle : `tmp/snaps/` (ignoré par Git, ne pas versionner). Comma
   - sortie par défaut : `tmp/render/dolma-forever.mp4` (ignoré par Git, ne pas versionner).
 - `FFMPEG=<chemin>` si ffmpeg n'est pas dans le PATH.
 - Test effectué dans le sandbox sur 4 s en aperçu 960×540 (vidéo et audio présents, image à t = 42 s correcte). Le master 1080p n'a pas été produit ici : ffmpeg et Chrome sont sur la machine de l'utilisateur.
+
+### Rendu en une commande : `tools/render_all.sh`
+
+Sur la machine de l'utilisateur (terminal Linux, ou cellule « ! » de Colab), une seule ligne :
+
+    curl -fsSL https://raw.githubusercontent.com/Thierryaco/clip-arm/arena/2748952e-clip-arm/clips/dolma-forever/tools/render_all.sh | bash
+
+Le script clone la branche, installe ffmpeg (apt) et puppeteer (qui télécharge Chrome), puis lance `render.mjs`.
+Options : `--preview` (960×540, rapide), `--from 40 --to 60` (extrait). Sortie : `clips/dolma-forever/tmp/render/` (ignoré par Git).
+Testé dans le sandbox sur un extrait de 2 s en aperçu (sans téléchargement de Chrome, avec CHROME_PATH et FFMPEG fournis). Le téléchargement de Chrome et l'appel `raw.githubusercontent.com` n'ont pas pu être testés ici.
