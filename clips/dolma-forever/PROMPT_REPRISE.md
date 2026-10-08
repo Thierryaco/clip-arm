@@ -205,3 +205,13 @@ Captures de contrôle : `tmp/snaps/` (ignoré par Git, ne pas versionner). Comma
 
 - Illustration `assets/plats/fin.jpg` ajoutée (table du soir presque vidée, bougie, lavash, citron, thé). Vérifiée à l'œil ; page « Fin de la recette » (p. 8) vérifiée à t = 160 s.
 - Il ne reste plus de page sans illustration. Restent : relecture de la reprise à l'écoute, recalage de `STORYBOARD.md`, rendu 1080p sur la machine de l'utilisateur, et relecture des graphies arméniennes listées plus haut.
+
+### Rendu vidéo : `tools/render.mjs`
+
+- Chaque image est produite par `BOOK.renderAt(t)` (Chrome headless via puppeteer-core), puis envoyée à ffmpeg (H.264 `crf 18`, preset `slow`, AAC 320 kb/s, audio `audio/song.mp3`).
+- Commandes (depuis `clips/dolma-forever`) :
+  - aperçu rapide : `CHROME_PATH=<chrome> node tools/render.mjs --preview --from 40 --to 60`
+  - master 1080p, 30 i/s, toute la chanson : `CHROME_PATH=<chrome> node tools/render.mjs`
+  - sortie par défaut : `tmp/render/dolma-forever.mp4` (ignoré par Git, ne pas versionner).
+- `FFMPEG=<chemin>` si ffmpeg n'est pas dans le PATH.
+- Test effectué dans le sandbox sur 4 s en aperçu 960×540 (vidéo et audio présents, image à t = 42 s correcte). Le master 1080p n'a pas été produit ici : ffmpeg et Chrome sont sur la machine de l'utilisateur.
