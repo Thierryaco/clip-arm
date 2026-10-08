@@ -18,7 +18,7 @@
       "joyful 120-135 bpm",
       "like traditional Armenian wedding song meets modern world music"
     ],
-    "note": "Paroles copiées depuis la page Suno. La version chantée (audio) contient des passages absents de ces paroles : « Aïe aïe aïe » (remplace Hay hay hay, validé), un refrain répété avec ad-libs vers 3:16, « Pour un café de repas » vers 3:29, « R roulé » vers 3:43 et 3:46. Ces passages sont à garder."
+    "note": "Paroles copiées depuis la page Suno. La version chantée (audio) contient des passages absents de ces paroles : « Aïe aïe aïe » (remplace Hay hay hay, validé), puis une reprise finale du refrain avec « R roulé » (section outro_reprise, à valider)."
   },
   "sections": [
     {
@@ -99,13 +99,30 @@
       "echo": [
         "beureK… keufté… pasteurmaaa… lavashhhh…"
       ]
+    },
+    {
+      "id": "outro_reprise",
+      "label": "Outro – reprise du chorus (audio uniquement)",
+      "direction": "reprise finale du refrain, « R roulé » répété à la fin",
+      "note": "Absent du texte Suno. Reconstitué à partir du refrain et des consignes de l'outro, à valider à l'écoute.",
+      "lines": [
+        "Oh dolma, keufté, beureK",
+        "Bouboules keufté qui fondent en bouche",
+        "Soudjouk qui craque, pasteurma qui pique",
+        "À table en Arménie, on rit, on savoure, on vit !",
+        "R roulé…",
+        "Soudjouk qui craque, pasteurma qui pique",
+        "À table en Arménie, on rit, on savoure, on vit !",
+        "R roulé…",
+        "R roulé…"
+      ]
     }
   ],
   "pronunciation_notes": {
     "beureK (r roulé !)": "Le « r » final est à rouler. Le texte garde la graphie officielle (BeureK / beureK) ; à l'écran, adopter une graphie unique (ex. « börek » ou « beureK ») et la garder partout.",
     "Hayastan": "Nom arménien de l'Arménie.",
     "Hay hay hay, aïdé à table": "« aïdé » est tel quel dans les paroles officielles ; à confirmer avec l'auteur (orthographe voulue ?).",
-    "R roulé (passages chantés)": "Suno a chanté les annotations entre parenthèses comme des paroles : « r roulé » est chanté (la lettre R, roulée) vers 3:43 et 3:46. À garder dans le clip."
+    "R roulé (passages chantés)": "Suno a chanté les annotations entre parenthèses comme des paroles : « r roulé » est chanté (la lettre R, roulée). Dans la reprise finale, il est répété 3 fois (3:29, 3:43, 3:47)."
   },
   "transcription_initial_prompt_words": [
     "Hayastan",

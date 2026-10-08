@@ -32,5 +32,33 @@
   "E01": {
     "start": 184.0
   },
-  "_L25": "155.12 : validé à l'écoute (« Aïe aïe aïe » remplace « Hay hay hay »)."
+  "_L25": "155.12 : validé à l'écoute (« Aïe aïe aïe » remplace « Hay hay hay »).",
+  "L26": {
+    "start": 196.76
+  },
+  "L27": {
+    "start": 199.76
+  },
+  "L28": {
+    "start": 203.08
+  },
+  "L29": {
+    "start": 205.38
+  },
+  "L30": {
+    "start": 208.82
+  },
+  "L31": {
+    "start": 211.52
+  },
+  "L32": {
+    "start": 217.02
+  },
+  "L33": {
+    "start": 222.96
+  },
+  "L34": {
+    "start": 226.64
+  },
+  "_reprise": "L26–L34 : reprise finale. Temps = débuts de segments de la transcription (3:16,8 → 3:46,6). Le « café de repas » de la transcription (3:28,8) est en fait un « R roulé » : ligne L30. À valider."
 }

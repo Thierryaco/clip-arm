@@ -17,19 +17,28 @@ Source : **audio** · durée : 239.92 s · tempo : 105.9 BPM
 | L11 | 1:13.96 | 1:15.94 | chorus_1 | Bouboules keufté qui fondent en bouche |
 | L12 | 1:15.94 | 1:18.24 | chorus_1 | Soudjouk qui craque, pasteurma qui pique |
 | L13 | 1:18.24 | 1:22.46 | chorus_1 | À table en Arménie, on rit, on savoure, on vit ! |
-| L14 | 1:40.20 | 1:44.22 | verse_3 | Kefta en boules rondes, dorées à souhait |
-| L15 | 1:44.22 | 1:47.74 | verse_3 | Dans la sauce tomate, un festin secret |
-| L16 | 1:47.74 | 1:51.32 | verse_3 | BeureK croustillant, fromage qui file et coule |
-| L17 | 1:51.32 | 1:55.06 | verse_3 | Chaque bouchée un voyage vers les montagnes |
-| L18 | 1:57.16 | 2:00.88 | bridge | Soudjouk séché au vent des hauts plateaux |
-| L19 | 2:00.88 | 2:04.00 | bridge | Pasteurma rouge, épices qui marquent l’âme |
-| L20 | 2:04.10 | 2:08.38 | bridge | Ces goûts d’autrefois restent gravés en nous |
+| L14 | 1:40.20 | 1:43.38 | verse_3 | Kefta en boules rondes, dorées à souhait |
+| L15 | 1:44.22 | 1:47.40 | verse_3 | Dans la sauce tomate, un festin secret |
+| L16 | 1:47.74 | 1:50.92 | verse_3 | BeureK croustillant, fromage qui file et coule |
+| L17 | 1:51.32 | 1:54.50 | verse_3 | Chaque bouchée un voyage vers les montagnes |
+| L18 | 1:57.16 | 2:00.34 | bridge | Soudjouk séché au vent des hauts plateaux |
+| L19 | 2:00.88 | 2:03.78 | bridge | Pasteurma rouge, épices qui marquent l’âme |
+| L20 | 2:04.10 | 2:07.28 | bridge | Ces goûts d’autrefois restent gravés en nous |
 | L21 | 2:11.80 | 2:14.54 | chorus_2 | Oh dolma, keufté, beureK |
 | L22 | 2:14.90 | 2:17.68 | chorus_2 | Bouboules keufté qui fondent en bouche |
 | L23 | 2:17.68 | 2:20.02 | chorus_2 | Soudjouk qui craque, pasteurma qui pique |
 | L24 | 2:20.02 | 2:24.22 | chorus_2 | À table en Arménie, on rit, on savoure, on vit ! |
 | L25 | 2:35.12 | 2:38.58 | outro | Hay hay hay, aïdé à table ! Dolma forever… |
 | E01 | 3:04.00 | 3:06.24 | outro | beureK… keufté… pasteurmaaa… lavashhhh… |
+| L26 | 3:16.76 | 3:19.00 | outro_reprise | Oh dolma, keufté, beureK |
+| L27 | 3:19.76 | 3:22.66 | outro_reprise | Bouboules keufté qui fondent en bouche |
+| L28 | 3:23.08 | 3:25.38 | outro_reprise | Soudjouk qui craque, pasteurma qui pique |
+| L29 | 3:25.38 | 3:28.82 | outro_reprise | À table en Arménie, on rit, on savoure, on vit ! |
+| L30 | 3:28.82 | 3:29.80 | outro_reprise | R roulé… |
+| L31 | 3:31.52 | 3:34.42 | outro_reprise | Soudjouk qui craque, pasteurma qui pique |
+| L32 | 3:37.02 | 3:41.04 | outro_reprise | À table en Arménie, on rit, on savoure, on vit ! |
+| L33 | 3:42.96 | 3:43.94 | outro_reprise | R roulé… |
+| L34 | 3:46.64 | 3:47.62 | outro_reprise | R roulé… |
 
 ## Sections
 
@@ -42,4 +51,9 @@ Source : **audio** · durée : 239.92 s · tempo : 105.9 BPM
 | verse_3 | 1:40.20 | 1:57.16 |
 | bridge | 1:57.16 | 2:11.80 |
 | chorus_2 | 2:11.80 | 2:35.12 |
-| outro | 2:35.12 | 3:59.92 |
+| outro | 2:35.12 | 3:16.76 |
+| outro_reprise | 3:16.76 | 3:59.92 |
+
+## Avertissements
+
+- Seulement 54% des mots reconnus : vérifie les lignes à l'écoute.

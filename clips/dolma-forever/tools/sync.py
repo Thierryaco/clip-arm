@@ -272,10 +272,14 @@ def finish_lines(out_lines, duration):
 
 
 def apply_overrides(lines, overrides, duration):
-    """Corrections manuelles : {"L05": {"start": 46.2}} décale les mots de la ligne. Les fins de ligne
-    sont recalculées ensuite, pour éviter les chevauchements."""
+    """Corrections manuelles : {"L05": {"start": 46.2}}. Le début de la ligne est fixé, et ses mots sont
+    répartis à l'espacement médian mesuré dans la chanson (et non étalés sur l'intervalle d'interpolation).
+    Les fins de ligne sont recalculées ensuite, pour éviter les chevauchements."""
     changed = []
     by_id = {l["id"]: l for l in lines}
+    gaps = sorted(ws[k + 1]["s"] - ws[k]["s"] for ws in (l["words"] for l in lines)
+                  for k in range(len(ws) - 1) if ws[k + 1]["s"] > ws[k]["s"])
+    dt = min(0.9, max(0.2, gaps[len(gaps) // 2])) if gaps else 0.42
     for lid, ov in overrides.items():
         if lid == "sections" or lid.startswith("_"):
             continue
@@ -284,10 +288,10 @@ def apply_overrides(lines, overrides, duration):
             continue
         line = by_id[lid]
         if "start" in ov:
-            delta = float(ov["start"]) - line["words"][0]["s"]
-            for w in line["words"]:
-                w["s"] = round(w["s"] + delta, 3)
-                w["e"] = round(w["e"] + delta, 3)
+            t0 = float(ov["start"])
+            for k, w in enumerate(line["words"]):
+                w["s"] = round(t0 + k * dt, 3)
+                w["e"] = round(t0 + (k + 1) * dt, 3)
             changed.append(lid)
     if changed:
         finish_lines(lines, duration)

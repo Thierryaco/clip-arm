@@ -76,7 +76,26 @@ le script et le storyboard reste valide.
 
 ---
 
+## Reprise finale (audio uniquement) : livre qui se referme
+
+Absente du texte Suno, présente dans la chanson : reprise du refrain en version outro, puis « R roulé » répété. Les
+mots sont reconstitués à partir du refrain et des consignes de l'outro, à valider à l'écoute.
+
+| id | texte | à l'écran | rythme |
+|---|---|---|---|
+| L26 | Oh dolma, keufté, beureK | Le livre revient sur la page « Menu », mais les pages se superposent : on voit plusieurs couches de menus. | une couche de plus à chaque temps |
+| L27 | Bouboules keufté qui fondent en bouche | Les boulettes repartent en rebond, cette fois hors du livre. | rebond |
+| L28 | Soudjouk qui craque, pasteurma qui pique | Secousses et pastilles rouges, comme au refrain 2. | secousse sur `onset` |
+| L29 | À table en Arménie, on rit, on savoure, on vit ! | La table revient, couverts posés un par un. | un couvert par temps |
+| L30 | R roulé… | Tampon « R » qui se répète, grandit à chaque coup. | un coup par temps |
+| L31 | Soudjouk qui craque, pasteurma qui pique | Reprise plus rapide, pages qui tournent plus vite. | pages sur chaque temps |
+| L32 | À table en Arménie, on rit, on savoure, on vit ! | Les personnages quittent la table, un à un. | un personnage par temps |
+| L33 | R roulé… | Le « R » tremble et se répète à l'écran, lettres empilées. | roulement |
+| L34 | R roulé… | Dernier « R », qui s'estompe dans le noir. Le livre se referme. | fondu final |
+
 ## Points à valider (voir METHODE_ADAPTEE.md)
 - Photo de la cuisinière (ou génération) et nom du personnage.
 - Photo de famille pour L20 (facultatif : générée sinon).
+- Reprise finale L26–L34 : confirmer les mots et l'ordre à l'écoute. L30, L33, L34 sont des « R roulé ».
+- E01 (écho) : est-ce bien le passage « beureK… keufté… » de la reprise, ou une autre partie ?
 - Graphie unique de « beureK » à l'écran.
