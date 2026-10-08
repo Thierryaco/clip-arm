@@ -30,15 +30,16 @@ Source : **audio** · durée : 239.92 s · tempo : 105.9 BPM
 | L24 | 2:20.02 | 2:24.22 | chorus_2 | À table en Arménie, on rit, on savoure, on vit ! |
 | L25 | 2:35.12 | 2:38.58 | outro | Hay hay hay, aïdé à table ! Dolma forever… |
 | E01 | 3:04.00 | 3:06.24 | outro | beureK… keufté… pasteurmaaa… lavashhhh… |
-| L26 | 3:16.76 | 3:19.00 | outro_reprise | Oh dolma, keufté, beureK |
+| L26 | 3:16.76 | 3:19.38 | outro_reprise | Dolma, keufté, beureK, R roulé |
 | L27 | 3:19.76 | 3:22.66 | outro_reprise | Bouboules keufté qui fondent en bouche |
 | L28 | 3:23.08 | 3:25.38 | outro_reprise | Soudjouk qui craque, pasteurma qui pique |
 | L29 | 3:25.38 | 3:28.82 | outro_reprise | À table en Arménie, on rit, on savoure, on vit ! |
-| L30 | 3:28.82 | 3:29.80 | outro_reprise | R roulé… |
-| L31 | 3:31.52 | 3:34.42 | outro_reprise | Soudjouk qui craque, pasteurma qui pique |
-| L32 | 3:37.02 | 3:41.04 | outro_reprise | À table en Arménie, on rit, on savoure, on vit ! |
-| L33 | 3:42.96 | 3:43.94 | outro_reprise | R roulé… |
-| L34 | 3:46.64 | 3:47.62 | outro_reprise | R roulé… |
+| L30 | 3:28.82 | 3:31.44 | outro_reprise | Dolma, keufté, beureK, R roulé |
+| L31 | 3:31.52 | 3:34.27 | outro_reprise | Bouboules keufté qui fondent en bouche |
+| L32 | 3:34.27 | 3:37.02 | outro_reprise | Soudjouk qui craque, pasteurma qui pique |
+| L33 | 3:37.02 | 3:41.04 | outro_reprise | À table en Arménie, on rit, on savoure, on vit ! |
+| L34 | 3:42.96 | 3:43.94 | outro_reprise | R roulé… |
+| L35 | 3:46.64 | 3:47.62 | outro_reprise | R roulé… |
 
 ## Sections
 
@@ -56,4 +57,4 @@ Source : **audio** · durée : 239.92 s · tempo : 105.9 BPM
 
 ## Avertissements
 
-- Seulement 54% des mots reconnus : vérifie les lignes à l'écoute.
+- Seulement 52% des mots reconnus : vérifie les lignes à l'écoute.

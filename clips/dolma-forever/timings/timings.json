@@ -1269,30 +1269,35 @@
    "id": "L26",
    "section": "outro_reprise",
    "start": 196.76,
-   "end": 199.0,
+   "end": 199.38,
    "echo": false,
-   "text": "Oh dolma, keufté, beureK",
+   "text": "Dolma, keufté, beureK, R roulé",
    "source": "manuel",
    "words": [
     {
-     "w": "Oh",
+     "w": "Dolma,",
      "s": 196.76,
      "e": 197.04
     },
     {
-     "w": "dolma,",
+     "w": "keufté,",
      "s": 197.04,
      "e": 197.32
     },
     {
-     "w": "keufté,",
+     "w": "beureK,",
      "s": 197.32,
      "e": 197.6
     },
     {
-     "w": "beureK",
+     "w": "R",
      "s": 197.6,
-     "e": 199.0
+     "e": 197.88
+    },
+    {
+     "w": "roulé",
+     "s": 197.88,
+     "e": 199.38
     }
    ]
   },
@@ -1443,20 +1448,35 @@
    "id": "L30",
    "section": "outro_reprise",
    "start": 208.82,
-   "end": 209.8,
+   "end": 211.44,
    "echo": false,
-   "text": "R roulé…",
+   "text": "Dolma, keufté, beureK, R roulé",
    "source": "manuel",
    "words": [
     {
-     "w": "R",
+     "w": "Dolma,",
      "s": 208.82,
      "e": 209.1
     },
     {
-     "w": "roulé…",
+     "w": "keufté,",
      "s": 209.1,
-     "e": 209.8
+     "e": 209.38
+    },
+    {
+     "w": "beureK,",
+     "s": 209.38,
+     "e": 209.66
+    },
+    {
+     "w": "R",
+     "s": 209.66,
+     "e": 209.94
+    },
+    {
+     "w": "roulé",
+     "s": 209.94,
+     "e": 211.44
     }
    ]
   },
@@ -1464,45 +1484,86 @@
    "id": "L31",
    "section": "outro_reprise",
    "start": 211.52,
-   "end": 214.42,
+   "end": 214.27,
+   "echo": false,
+   "text": "Bouboules keufté qui fondent en bouche",
+   "source": "manuel",
+   "words": [
+    {
+     "w": "Bouboules",
+     "s": 211.52,
+     "e": 211.8
+    },
+    {
+     "w": "keufté",
+     "s": 211.8,
+     "e": 212.08
+    },
+    {
+     "w": "qui",
+     "s": 212.08,
+     "e": 212.36
+    },
+    {
+     "w": "fondent",
+     "s": 212.36,
+     "e": 212.64
+    },
+    {
+     "w": "en",
+     "s": 212.64,
+     "e": 212.92
+    },
+    {
+     "w": "bouche",
+     "s": 212.92,
+     "e": 214.27
+    }
+   ]
+  },
+  {
+   "id": "L32",
+   "section": "outro_reprise",
+   "start": 214.27,
+   "end": 217.02,
    "echo": false,
    "text": "Soudjouk qui craque, pasteurma qui pique",
    "source": "manuel",
    "words": [
     {
      "w": "Soudjouk",
-     "s": 211.52,
-     "e": 211.8
+     "s": 214.27,
+     "e": 214.55
     },
     {
      "w": "qui",
-     "s": 211.8,
-     "e": 212.08
+     "s": 214.55,
+     "e": 214.83
     },
     {
      "w": "craque,",
-     "s": 212.08,
-     "e": 212.36
+     "s": 214.83,
+     "e": 215.11
     },
     {
      "w": "pasteurma",
-     "s": 212.36,
-     "e": 212.64
+     "s": 215.11,
+     "e": 215.39
     },
     {
      "w": "qui",
-     "s": 212.64,
-     "e": 212.92
+     "s": 215.39,
+     "e": 215.67
     },
     {
      "w": "pique",
-     "s": 212.92,
-     "e": 214.42
+     "s": 215.67,
+     "e": 217.02
     }
    ]
   },
   {
-   "id": "L32",
+   "id": "L33",
    "section": "outro_reprise",
    "start": 217.02,
    "end": 221.04,
@@ -1563,7 +1624,7 @@
    ]
   },
   {
-   "id": "L33",
+   "id": "L34",
    "section": "outro_reprise",
    "start": 222.96,
    "end": 223.94,
@@ -1584,7 +1645,7 @@
    ]
   },
   {
-   "id": "L34",
+   "id": "L35",
    "section": "outro_reprise",
    "start": 226.64,
    "end": 227.62,
@@ -1606,6 +1667,6 @@
   }
  ],
  "warnings": [
-  "Seulement 54% des mots reconnus : vérifie les lignes à l'écoute."
+  "Seulement 52% des mots reconnus : vérifie les lignes à l'écoute."
  ]
 }

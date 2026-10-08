@@ -104,13 +104,14 @@
       "id": "outro_reprise",
       "label": "Outro – reprise du chorus (audio uniquement)",
       "direction": "reprise finale du refrain, « R roulé » répété à la fin",
-      "note": "Absent du texte Suno. Reconstitué à partir du refrain et des consignes de l'outro, à valider à l'écoute.",
+      "note": "Absent du texte Suno. Reconstitué à partir du refrain et des consignes de l'outro. Structure : L26–L29 jouées deux fois, puis deux « R roulé » (L34, L35).",
       "lines": [
-        "Oh dolma, keufté, beureK",
+        "Dolma, keufté, beureK, R roulé",
         "Bouboules keufté qui fondent en bouche",
         "Soudjouk qui craque, pasteurma qui pique",
         "À table en Arménie, on rit, on savoure, on vit !",
-        "R roulé…",
+        "Dolma, keufté, beureK, R roulé",
+        "Bouboules keufté qui fondent en bouche",
         "Soudjouk qui craque, pasteurma qui pique",
         "À table en Arménie, on rit, on savoure, on vit !",
         "R roulé…",
@@ -122,7 +123,7 @@
     "beureK (r roulé !)": "Le « r » final est à rouler. Le texte garde la graphie officielle (BeureK / beureK) ; à l'écran, adopter une graphie unique (ex. « börek » ou « beureK ») et la garder partout.",
     "Hayastan": "Nom arménien de l'Arménie.",
     "Hay hay hay, aïdé à table": "« aïdé » est tel quel dans les paroles officielles ; à confirmer avec l'auteur (orthographe voulue ?).",
-    "R roulé (passages chantés)": "Suno a chanté les annotations entre parenthèses comme des paroles : « r roulé » est chanté (la lettre R, roulée). Dans la reprise finale, il est répété 3 fois (3:29, 3:43, 3:47)."
+    "R roulé (passages chantés)": "« r roulé » est chanté (la lettre R, roulée) : entre parenthèses après « beureK » dans la reprise (L26, L30), puis seul à la fin (L34, L35)."
   },
   "transcription_initial_prompt_words": [
     "Hayastan",
