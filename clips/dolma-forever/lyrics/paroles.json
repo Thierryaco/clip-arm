@@ -1,0 +1,121 @@
+{
+  "song": {
+    "title_suno": "(soft duduk intro, percussions qui montent doucement)",
+    "title_clip": "Dolma Forever",
+    "artist_suno": "titispeed",
+    "suno_url": "https://suno.com/s/6d0gOkzMpM9DFNuI",
+    "suno_song_id": "11c2ae6c-d395-4acd-b11c-1d9f55cd9020",
+    "suno_model": "V4.5-ALL",
+    "duration_suno": "3:59",
+    "duration_seconds_estimate": 239,
+    "style_tags": [
+      "upbeat Armenian folk fusion",
+      "Caucasian duduk and oud melodies",
+      "lively clarinet",
+      "hand percussion",
+      "warm male & female harmonies",
+      "festive Mediterranean banquet vibe",
+      "joyful 120-135 bpm",
+      "like traditional Armenian wedding song meets modern world music"
+    ],
+    "note": "Paroles copiées telles quelles depuis la page Suno. Durée et timings de sections = estimations, à caler sur l'audio réel (MP3 non encore fourni)."
+  },
+  "sections": [
+    {
+      "id": "intro",
+      "label": "Intro",
+      "direction": "soft duduk intro, percussions qui montent doucement",
+      "estimated_start_s": 0,
+      "lines": [
+        "Hayastan, l’odeur des épices appelle…"
+      ]
+    },
+    {
+      "id": "verse_1",
+      "label": "Verse 1",
+      "estimated_start_s": 14,
+      "lines": [
+        "Feuilles de vigne tendres, roulées avec soin",
+        "Dolma qui brille dans l’assiette, pur bonheur",
+        "Riz parfumé, viande hachée, herbes qui dansent",
+        "Un petit paquet vert, saveur d’enfance immense"
+      ]
+    },
+    {
+      "id": "verse_2_lavash",
+      "label": "Verse 2 – Lavash",
+      "estimated_start_s": 45,
+      "lines": [
+        "Lavash fin comme une caresse, cuit au tonir chaud",
+        "Étendu, claqué contre le mur, doré en un éclair",
+        "Pain de tous les jours, UNESCO dans le cœur",
+        "Avec lui tout s’enroule, tout se partage, tout est meilleur"
+      ]
+    },
+    {
+      "id": "chorus_1",
+      "label": "Chorus",
+      "estimated_start_s": 76,
+      "lines": [
+        "Oh dolma, keufté, beureK (r roulé !)",
+        "Bouboules keufté qui fondent en bouche",
+        "Soudjouk qui craque, pasteurma qui pique",
+        "À table en Arménie, on rit, on savoure, on vit !"
+      ]
+    },
+    {
+      "id": "verse_3",
+      "label": "Verse 3",
+      "estimated_start_s": 104,
+      "lines": [
+        "Kefta en boules rondes, dorées à souhait",
+        "Dans la sauce tomate, un festin secret",
+        "BeureK croustillant, fromage qui file et coule",
+        "Chaque bouchée un voyage vers les montagnes"
+      ]
+    },
+    {
+      "id": "bridge",
+      "label": "Bridge",
+      "direction": "duduk solo émouvant, un peu plus lent",
+      "estimated_start_s": 134,
+      "lines": [
+        "Soudjouk séché au vent des hauts plateaux",
+        "Pasteurma rouge, épices qui marquent l’âme",
+        "Ces goûts d’autrefois restent gravés en nous"
+      ]
+    },
+    {
+      "id": "chorus_2",
+      "label": "Chorus – plus fort, chœurs joyeux",
+      "estimated_start_s": 166,
+      "lines": [
+        "Oh dolma, keufté, beureK (r roulé !)",
+        "Bouboules keufté qui fondent en bouche",
+        "Soudjouk qui craque, pasteurma qui pique",
+        "À table en Arménie, on rit, on savoure, on vit !"
+      ]
+    },
+    {
+      "id": "outro",
+      "label": "Outro",
+      "direction": "percus + claps festifs, fade out joyeux",
+      "estimated_start_s": 200,
+      "lines": [
+        "Hay hay hay, aïdé à table ! Dolma forever…"
+      ],
+      "echo": [
+        "beureK… keufté… pasteurmaaa… lavashhhh…"
+      ]
+    }
+  ],
+  "pronunciation_notes": {
+    "beureK (r roulé !)": "Le « r » final est à rouler. Le texte garde la graphie officielle (BeureK / beureK) ; à l'écran, adopter une graphie unique (ex. « börek » ou « beureK ») et la garder partout.",
+    "Hayastan": "Nom arménien de l'Arménie.",
+    "Hay hay hay, aïdé à table": "« aïdé » est tel quel dans les paroles officielles ; à confirmer avec l'auteur (orthographe voulue ?)."
+  },
+  "transcription_initial_prompt_words": [
+    "Hayastan", "dolma", "keufté", "beureK", "soudjouk", "pasteurma", "lavash", "tonir",
+    "kefta", "duduk", "UNESCO", "Arménie", "aïdé"
+  ]
+}
