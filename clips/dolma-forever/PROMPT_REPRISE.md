@@ -225,3 +225,5 @@ Sur la machine de l'utilisateur (terminal Linux, ou cellule « ! » de Colab), u
 Le script clone la branche, installe ffmpeg (apt) et puppeteer (qui télécharge Chrome), puis lance `render.mjs`.
 Options : `--preview` (960×540, rapide), `--from 40 --to 60` (extrait). Sortie : `clips/dolma-forever/tmp/render/` (ignoré par Git).
 Testé dans le sandbox sur un extrait de 2 s en aperçu (sans téléchargement de Chrome, avec CHROME_PATH et FFMPEG fournis). Le téléchargement de Chrome et l'appel `raw.githubusercontent.com` n'ont pas pu être testés ici.
+
+Sur Colab : le fichier est créé sur le disque temporaire de la session (`/root/dolma-forever-render/...`), pas sur le disque de l'utilisateur. Le télécharger avant la fin de la session (cellule Python : `from google.colab import files; files.download(chemin)`). Le master est long à rendre sur Colab : garder l'onglet ouvert, ou faire le rendu par morceaux (`--from/--to`). Non testé sur Colab.
