@@ -98,5 +98,5 @@ Les mots viennent du refrain et des consignes de l'outro, à valider à l'écout
 - Photo de la cuisinière (ou génération) et nom du personnage.
 - Photo de famille pour L20 (facultatif : générée sinon).
 - Reprise finale L26–L35 : confirmer les mots, l'ordre et le nombre de lignes de la seconde passe (L30–L33).
-- E01 (écho) : est-ce bien le passage « beureK… keufté… » de la reprise, ou une autre partie ?
+- E01 (écho) : gardé à sa place (après « Dolma forever »), décision validée.
 - Graphie unique de « beureK » à l'écran.
