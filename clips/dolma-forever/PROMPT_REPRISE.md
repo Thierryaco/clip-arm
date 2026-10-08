@@ -184,3 +184,12 @@ Captures de contrôle : `tmp/snaps/` (ignoré par Git, ne pas versionner). Comma
 (Chromium et puppeteer-core ne sont pas persistés : à réinstaller si la session repart de zéro.)
 
 À faire ensuite : pages restantes (Lavash, Menu, Kefta, Souvenirs, Fête, Fin de la recette, reprise finale) et leurs illustrations (generate_image) ; recaler `STORYBOARD.md` sur les temps finaux ; rendu 1080p sur la machine de l'utilisateur.
+
+### Mise à jour : pages de recettes (suite de la section 11)
+
+- `pages/book.js` : `buildRecipePage(secId, cfg)` construit une page par section (table `RECIPE_PAGES`) : lavash (p. 3), menu (p. 4), kefta (p. 5), souvenirs (p. 6), fête (p. 7), fin de la recette (p. 8, sans illustration), reprise « Encore ! » (p. 9, deux colonnes, sans cuisinière).
+- Liste : une case par ligne chantée, cochée à `line.start`. Hauteur de chaque ligne estimée (≈ 0,42 em par caractère) pour éviter les chevauchements.
+- Illustrations ajoutées (`assets/plats/`) : `lavash.jpg`, `menu.jpg`, `kefta.jpg`, `souvenirs.jpg` (cadrage `pos: '30% 85%'`), `fete.jpg`. Vérifiées à l'œil.
+- Captures vérifiées : t = 60 (lavash), 90 (menu), 107 (kefta), 125 (souvenirs), 140 (fête), 160 (fin), 210 (reprise).
+- À valider : titres et numéros de page (Lavash, Menu, Kefta, Souvenirs, Fête, Fin de la recette, Encore !) ; texte des cases = paroles officielles telles quelles (« beureK », « R roulé… »).
+- Reste à faire : illustration pour la page « Fin de la recette » (actuellement sans image), relecture de la reprise à l'écoute, recalage de STORYBOARD.md, rendu 1080p sur la machine de l'utilisateur.

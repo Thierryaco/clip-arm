@@ -64,3 +64,7 @@ html, body { margin: 0; background: #1e140d; }
 .karaoke { position: absolute; left: 110px; right: 110px; bottom: 90px; min-height: 140px; text-align: left; }
 .karaoke-tag { font: 600 40px 'Caveat'; color: #8a5a3a; }
 .fallback { position: absolute; left: 0; right: 0; top: 440px; text-align: center; font: 400 52px 'Playfair'; color: #8a5a3a; font-style: italic; }
+
+/* --- pages de recettes (lavash, menu, kefta, souvenirs, fête, fin, reprise) --- */
+.recipe-ill { position: absolute; left: 110px; top: 190px; width: 520px; height: 520px; object-fit: cover; -webkit-mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 70%, transparent 100%); mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, #000 70%, transparent 100%); }
+.label { position: absolute; font: 600 44px 'Caveat'; color: #8a5a3a; }
