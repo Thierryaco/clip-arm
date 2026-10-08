@@ -67,7 +67,7 @@ shutil.copy(src, dst)
 print('Copié :', dst, f'({os.path.getsize(dst) / 1e6:.0f} Mo)')
 ```
 
-Si la session Colab se coupe, relancer la cellule 2 : il n'y a pas de reprise, le rendu repart de zéro.
+Si la session Colab se coupe pendant le rendu, relancer la cellule 1 : il n'y a pas de reprise, le rendu repart de zéro.
 
 
 ## Taille
