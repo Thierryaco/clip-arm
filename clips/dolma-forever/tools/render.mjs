@@ -48,15 +48,19 @@ const ffArgs = [
   '-movflags', '+faststart', '-shortest',
   outFile,
 ];
-const ff = spawn(ffmpegBin, ffArgs, { stdio: ['pipe', 'inherit', 'inherit'] });
-const ffDone = new Promise((res, rej) => ff.on('exit', (code) => (code === 0 ? res() : rej(new Error('ffmpeg a échoué, code ' + code)))));
-
 const chromePath = process.env.CHROME_PATH;
-const browser = await puppeteer.launch({
-  executablePath: chromePath || undefined,
-  headless: true,
-  args: ['--no-sandbox', '--disable-gpu', '--font-render-hinting=none'],
-});
+let browser;
+try {
+  browser = await puppeteer.launch({
+    executablePath: chromePath || undefined,
+    headless: true,
+    args: ['--no-sandbox', '--disable-gpu', '--font-render-hinting=none'],
+  });
+} catch (e) {
+  console.error("Chrome n'a pas pu démarrer. Sur Colab/Ubuntu, installez les bibliothèques système (tools/render_all.sh le fait).");
+  console.error(String(e));
+  process.exit(1);
+}
 const page = await browser.newPage();
 await page.setViewport({ width: 1920, height: 1080, deviceScaleFactor: scale });
 const errors = [];
@@ -67,6 +71,11 @@ const index = pathToFileURL(join(clipDir, 'pages', 'index.html')).href;
 await page.goto(`${index}?t=${from}`, { waitUntil: 'load' });
 await page.waitForFunction(() => document.body.dataset.ready === '1');
 await page.evaluate(() => document.fonts.ready);
+
+// ffmpeg ne démarre qu'une fois Chrome prêt : si Chrome échoue, on le dit clairement.
+if (errors.length) console.log('erreurs de page (avant rendu) :\n' + errors.join('\n'));
+const ff = spawn(ffmpegBin, ffArgs, { stdio: ['pipe', 'inherit', 'inherit'] });
+const ffDone = new Promise((res, rej) => ff.on('exit', (code) => (code === 0 ? res() : rej(new Error('ffmpeg a échoué, code ' + code)))));
 
 const t0 = Date.now();
 for (let n = 0; n < frameCount; n++) {

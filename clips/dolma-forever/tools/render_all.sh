@@ -18,9 +18,10 @@ SUDO=""; if [ "$(id -u)" -ne 0 ] && command -v sudo >/dev/null 2>&1; then SUDO="
 echo "== 1/4 Dépôt"
 mkdir -p "$WORK"
 if [ -d "$WORK/clip-arm/.git" ]; then
+  # Clone de travail : on le réaligne sur la branche (les modifications locales éventuelles sont écartées).
   git -C "$WORK/clip-arm" fetch -q origin "$BRANCH"
-  git -C "$WORK/clip-arm" checkout -q "$BRANCH"
-  git -C "$WORK/clip-arm" pull -q --ff-only origin "$BRANCH"
+  git -C "$WORK/clip-arm" checkout -q -B "$BRANCH" "origin/$BRANCH"
+  git -C "$WORK/clip-arm" reset -q --hard "origin/$BRANCH"
 else
   git clone -q -b "$BRANCH" "$REPO_URL" "$WORK/clip-arm"
 fi
@@ -47,6 +48,22 @@ if [ -z "${FFMPEG:-}" ] && ! command -v ffmpeg >/dev/null 2>&1; then
   else
     echo "ffmpeg est requis : installez-le (https://ffmpeg.org) puis relancez."; exit 1
   fi
+fi
+
+# Bibliothèques système requises par Chrome (Colab / Ubuntu 24.04 : certains noms ont changé, t64).
+# Chaque paquet est essayé sous ses deux noms ; un échec n'arrête pas le script.
+if [ -z "${CHROME_PATH:-}" ] && command -v apt-get >/dev/null 2>&1; then
+  echo "== Bibliothèques système pour Chrome"
+  $SUDO apt-get update -qq >/dev/null 2>&1 || true
+  for pair in "libnss3:libnss3" "libatk1.0-0t64:libatk1.0-0" "libatk-bridge2.0-0t64:libatk-bridge2.0-0" \
+              "libcups2t64:libcups2" "libasound2t64:libasound2" "libxkbcommon0:libxkbcommon0" \
+              "libxcomposite1:libxcomposite1" "libxdamage1:libxdamage1" "libxrandr2:libxrandr2" \
+              "libgbm1:libgbm1" "libpango-1.0-0:libpango-1.0-0" "libcairo2:libcairo2" \
+              "libxshmfence1:libxshmfence1" "libxfixes3:libxfixes3" "libdrm2:libdrm2" "fonts-liberation:fonts-liberation"; do
+    new="${pair%%:*}"; old="${pair##*:}"
+    $SUDO apt-get install -y -qq "$new" >/dev/null 2>&1 || $SUDO apt-get install -y -qq "$old" >/dev/null 2>&1 || echo "  (paquet ignoré : $new / $old)"
+  done
+  $SUDO ldconfig >/dev/null 2>&1 || true
 fi
 
 echo "== 3/4 Dépendances de rendu (puppeteer)"
