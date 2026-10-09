@@ -8,9 +8,7 @@
 html, body { margin: 0; background: #1e140d; }
 #stage {
   position: relative; width: 1920px; height: 1080px; overflow: hidden;
-  background:
-    radial-gradient(ellipse at 50% 40%, rgba(255,220,170,0.10), rgba(0,0,0,0) 60%),
-    repeating-linear-gradient(90deg, #4a3224 0 180px, #432c1f 180px 182px, #4f3627 182px 360px);
+  background: #2a1c13; /* fond uni : pas de cadre ni de bord de livre autour des pages */
 }
 #book { position: absolute; left: 110px; top: 70px; width: 1700px; height: 940px; }
 
@@ -20,7 +18,7 @@ html, body { margin: 0; background: #1e140d; }
     radial-gradient(ellipse at 30% 20%, rgba(255,255,255,0.35), rgba(255,255,255,0) 55%),
     radial-gradient(ellipse at 80% 90%, rgba(120,80,40,0.10), rgba(0,0,0,0) 60%),
     #f6ecd6;
-  box-shadow: 0 30px 60px rgba(0,0,0,0.55), inset 0 0 90px rgba(120,80,40,0.18);
+  box-shadow: inset 0 0 90px rgba(120,80,40,0.18);
 }
 .page .fold {
   position: absolute; top: 0; bottom: 0; left: 50%; width: 60px; margin-left: -30px;
@@ -82,7 +80,7 @@ html, body { margin: 0; background: #1e140d; }
   background:
     radial-gradient(ellipse at 40% 30%, rgba(255,220,160,0.16), rgba(0,0,0,0) 60%),
     linear-gradient(90deg, #2e170e 0, #5a2a18 2.5%, #5a2a18 97.5%, #2e170e 100%);
-  box-shadow: 0 30px 60px rgba(0,0,0,0.55);
+  box-shadow: none;
 }
 .intro-cover::before { content: ''; position: absolute; left: 36px; top: 36px; right: 36px; bottom: 36px; border: 3px solid #c9a46a; border-radius: 4px; }
 .intro-cover .ca { position: absolute; left: 0; right: 0; top: 270px; text-align: center; font: 400 40px 'NotoArm'; letter-spacing: 0.2em; color: #e7c887; }
